@@ -12,9 +12,9 @@ input:focus-visible {
 }
 
 :focus-visible {
-  @apply outline-2 outline-purple-500 outline-double;
+  @apply outline-2 outline-red-500 outline-double;
 }
 
 ::selection {
-  @apply bg-purple-500;
+  @apply bg-red-500;
 }
