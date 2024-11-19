@@ -2,20 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
-  color: var(--foreground);
-  background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+  @apply bg-cyan-300 min-h-dvh text-black text-xl overflow-y-scroll leading-6 flex flex-col;
+}
+
+input:focus-visible {
+  @apply outline-none;
+}
+
+:focus-visible {
+  @apply outline-2 outline-purple-500 outline-double;
+}
+
+::selection {
+  @apply bg-purple-500;
 }
