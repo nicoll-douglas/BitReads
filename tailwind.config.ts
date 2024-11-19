@@ -17,8 +17,8 @@ export default {
       },
     },
     boxShadow: {
-      sm: "4px 4px rgb(0, 0, 0, 0.4)",
-      md: "8px 8px rgb(0, 0, 0, 0.4)",
+      sm: "4px 4px rgb(0, 0, 0, 0.3)",
+      md: "8px 8px rgb(0, 0, 0, 0.3)",
     },
   },
   plugins: [],

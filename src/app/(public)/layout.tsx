@@ -6,7 +6,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <>
       <Header />
       <div className="w-full max-w-container.xl flex flex-col pb-20 mx-auto flex-1">
-        {children}
+        <main className="flex-1 px-8 my-16 flex items-center justify-center">
+          {children}
+        </main>
       </div>
     </>
   );

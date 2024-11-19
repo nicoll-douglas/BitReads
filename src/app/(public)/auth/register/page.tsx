@@ -2,13 +2,13 @@ import * as A from "@/components/atomic";
 import { genIds } from "@/utils";
 
 export default function Page() {
-  const ids = genIds(3);
+  const ids = genIds(10);
 
   return (
     <A.Card>
       <div className="p-4">
         <h1 className="text-3xl" id={ids["2"]}>
-          Login
+          Register
         </h1>
       </div>
       <form
@@ -17,9 +17,33 @@ export default function Page() {
       >
         <div className="flex flex-col">
           <A.form.Label htmlFor={ids["0"]} required>
-            Username or Email:
+            Email:
           </A.form.Label>
-          <A.form.Input className="w-full" id={ids["0"]} required />
+          <A.form.Input
+            className="w-full"
+            id={ids["0"]}
+            type="email"
+            required
+          />
+          <A.form.ErrorMessage></A.form.ErrorMessage>
+        </div>
+        <div className="flex flex-col">
+          <A.form.Label htmlFor={ids["3"]} required>
+            Confirm Email
+          </A.form.Label>
+          <A.form.Input
+            className="w-full"
+            id={ids["3"]}
+            type="email"
+            required
+          />
+          <A.form.ErrorMessage></A.form.ErrorMessage>
+        </div>
+        <div className="flex flex-col">
+          <A.form.Label htmlFor={ids["4"]} required>
+            Username
+          </A.form.Label>
+          <A.form.Input className="w-full" id={ids["4"]} required />
           <A.form.ErrorMessage></A.form.ErrorMessage>
         </div>
         <div className="flex flex-col">

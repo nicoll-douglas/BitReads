@@ -10,7 +10,7 @@ export default function Header() {
   return (
     <header
       className={`w-full py-4 gap-4 sticky top-0 z-50 ${
-        isScrolled ? "border-black bg-cyan-200 border-b" : "bg-cyan-300"
+        isScrolled ? "border-black bg-cyan-300/90 border-b" : ""
       }`}
     >
       <div className="w-full max-w-container.xl mx-auto flex items-center px-8">
