@@ -6,9 +6,9 @@ interface LinkProps extends React.HTMLProps<HTMLAnchorElement> {
 }
 
 const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
-  ({ children, ...rest }, ref) => {
+  ({ children, className = "", ...rest }, ref) => {
     return (
-      <NextLink ref={ref} className="hover:underline" {...rest}>
+      <NextLink ref={ref} className={`hover:underline ${className}`} {...rest}>
         {children}
       </NextLink>
     );

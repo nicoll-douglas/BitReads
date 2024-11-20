@@ -32,7 +32,17 @@ export default function Page() {
             Password:
           </A.form.Label>
           <A.form.PasswordInput className="w-full" id={ids["1"]} required />
-          <A.form.ErrorMessage></A.form.ErrorMessage>
+          <div className="flex justify-between items-start gap-4 mt-1">
+            <A.form.ErrorMessage className="mt-0">
+              error with password, please type
+            </A.form.ErrorMessage>
+            <A.Link
+              href="/auth/forgot"
+              className="text-lg leading-5 text-nowrap ml-auto"
+            >
+              Forgot password?
+            </A.Link>
+          </div>
         </div>
         <A.Button type="submit">Submit</A.Button>
       </form>

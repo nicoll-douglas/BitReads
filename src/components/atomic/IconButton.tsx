@@ -12,11 +12,15 @@ interface IconButtonProps
 }
 
 const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
-  ({ icon, ...rest }, ref) => {
+  ({ icon, className = "", ...rest }, ref) => {
     const size = icon.size || 5;
 
     return (
-      <Button className="h-9 w-9 min-w-9 min-h-9 px-0" ref={ref} {...rest}>
+      <Button
+        className={`h-9 w-9 min-w-9 min-h-9 px-0 ${className}`}
+        ref={ref}
+        {...rest}
+      >
         <Image
           alt=""
           src={icon.src}
