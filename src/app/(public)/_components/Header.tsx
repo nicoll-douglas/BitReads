@@ -3,7 +3,6 @@
 import { Link } from "@/components/atomic";
 import NextLink from "next/link";
 import Image from "next/image";
-import Image from "next/image";
 import { useIsScrolled } from "@/hooks";
 
 export default function Header() {
