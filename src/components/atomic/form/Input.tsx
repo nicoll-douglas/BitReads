@@ -16,6 +16,7 @@ export default function Input({
       className={`p-1 border-black border-2 focus-visible:border-red-500 ${
         isInvalid ? "border-red-500" : ""
       } ${className}`}
+      spellCheck={false}
       {...rest}
     />
   );
