@@ -1,5 +1,10 @@
 import * as A from "@/components/atomic";
 import { genIds } from "@/utils";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "BitReads | Login",
+};
 
 export default function Page() {
   const ids = genIds(3);
