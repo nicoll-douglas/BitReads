@@ -3,3 +3,4 @@ export { default as Link } from "./Link";
 export * as form from "./form";
 export { default as Button } from "./Button";
 export * as menu from "./menu";
+export { default as IconButton } from "./IconButton";

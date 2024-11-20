@@ -55,12 +55,7 @@ export default function Page() {
           <A.form.Label htmlFor={ids["1"]} required>
             Password:
           </A.form.Label>
-          <A.form.Input
-            className="w-full"
-            id={ids["1"]}
-            type="password"
-            required
-          />
+          <A.form.PasswordInput className="w-full" id={ids["1"]} required />
           <A.form.ErrorMessage></A.form.ErrorMessage>
         </div>
         <A.Button type="submit">Submit</A.Button>

@@ -1,6 +1,6 @@
 import React from "react";
 
-interface InputProps extends React.HTMLProps<HTMLInputElement> {
+export interface InputProps extends React.HTMLProps<HTMLInputElement> {
   isInvalid?: boolean;
 }
 

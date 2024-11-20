@@ -1,5 +1,4 @@
-import * as A from "@/components/atomic";
-import Image from "next/image";
+import { IconButton } from "@/components/atomic";
 import React from "react";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -12,20 +11,12 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (props, ref) => {
     return (
-      <A.Button
-        className="h-9 w-9 flex items-center justify-center px-0"
+      <IconButton
+        icon={{ src: "/icons/hamburger.svg" }}
         aria-haspopup="true"
         ref={ref}
         {...props}
-      >
-        <Image
-          src={"/icons/hamburger.svg"}
-          alt=""
-          aria-hidden="true"
-          width={20}
-          height={20}
-        />
-      </A.Button>
+      />
     );
   }
 );
