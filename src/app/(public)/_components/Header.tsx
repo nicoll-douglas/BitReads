@@ -4,7 +4,7 @@ import { useIsScrolled } from "@/hooks";
 import MobileMenu from "./MobileMenu";
 import { Wordmark } from "@/components/common";
 import links from "../_data/links";
-import Link from "next/link";
+import { Link } from "@/components/atomic";
 
 export default function Header() {
   const isScrolled = useIsScrolled();
