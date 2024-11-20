@@ -5,10 +5,16 @@ interface LinkProps extends React.HTMLProps<HTMLAnchorElement> {
   href: string;
 }
 
-export default function Link({ children, ...rest }: LinkProps) {
-  return (
-    <NextLink className="hover:underline" {...rest}>
-      {children}
-    </NextLink>
-  );
-}
+const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
+  ({ children, ...rest }, ref) => {
+    return (
+      <NextLink ref={ref} className="hover:underline" {...rest}>
+        {children}
+      </NextLink>
+    );
+  }
+);
+
+Link.displayName = "Link";
+
+export default Link;
