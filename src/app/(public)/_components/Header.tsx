@@ -2,6 +2,7 @@
 
 import { Link } from "@/components/atomic";
 import NextLink from "next/link";
+import Image from "next/image";
 import { useIsScrolled } from "@/hooks";
 
 export default function Header() {
@@ -15,9 +16,13 @@ export default function Header() {
     >
       <div className="w-full max-w-container.xl mx-auto flex items-center px-8">
         <NextLink href="/">
-          <div className="w-32 h-12 bg-red-300 text-center flex items-center justify-center">
-            Logo
-          </div>
+          <Image
+            src={"/logo.svg"}
+            alt="BitReads"
+            width={160}
+            height={32}
+            priority
+          />
         </NextLink>
         <nav className="flex gap-8 ml-auto">
           <Link href="/about">About</Link>
