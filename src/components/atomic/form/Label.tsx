@@ -12,7 +12,7 @@ export default function Label({
   ...rest
 }: LabelProps) {
   return (
-    <label className={`mb-1 ${className}`} {...rest}>
+    <label className={`${className} mb-1`} {...rest}>
       {children} {required && <span className="text-red-500">*</span>}
     </label>
   );

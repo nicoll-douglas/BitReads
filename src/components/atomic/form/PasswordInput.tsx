@@ -17,7 +17,7 @@ export default function PasswordInput(props: InputProps) {
         className="w-9 h-9 min-h-9 min-w-9 flex items-center justify-center border-2 bg-white border-black"
       >
         <Image
-          src={`/icons/eye-${isVisible ? "closed" : "open"}.svg`}
+          src={`/icons/eye-${isVisible ? "open" : "closed"}.svg`}
           alt=""
           width={24}
           height={24}

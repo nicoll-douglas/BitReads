@@ -82,6 +82,10 @@ export default function RegisterForm(props: RegisterForm) {
         <A.form.ErrorMessage show={!!usernameError}>
           {usernameError}
         </A.form.ErrorMessage>
+        <A.form.HelperText>
+          <li>Must be between 3 and 20 characters long</li>
+          <li>May only contain letters, numbers, underscores and hyphens</li>
+        </A.form.HelperText>
       </div>
       <div className="flex flex-col">
         <A.form.Label htmlFor={"password-input"} required>
@@ -98,6 +102,10 @@ export default function RegisterForm(props: RegisterForm) {
         <A.form.ErrorMessage show={!!passwordError}>
           {passwordError}
         </A.form.ErrorMessage>
+        <A.form.HelperText>
+          <li>Must be between 8 and 64 characters long</li>
+          <li>Must contain at least one letter and one number</li>
+        </A.form.HelperText>
       </div>
       <A.Button isLoading={isPending} type="submit" className="px-4 h-9">
         Submit
