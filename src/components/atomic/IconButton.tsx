@@ -27,6 +27,7 @@ const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
           width={20}
           height={20}
           className={`h-${size} w-${size} min-w-${size} min-h-${size}`}
+          style={{ height: `${4 * size}px`, width: `${4 * size}px` }}
         />
       </Button>
     );

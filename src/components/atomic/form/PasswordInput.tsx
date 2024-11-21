@@ -1,7 +1,7 @@
 "use client";
 
 import Input, { InputProps } from "./Input";
-import { IconButton } from "@/components/atomic";
+import Image from "next/image";
 import { useState } from "react";
 
 export default function PasswordInput(props: InputProps) {
@@ -10,16 +10,19 @@ export default function PasswordInput(props: InputProps) {
   return (
     <div className="flex gap-1">
       <Input type={isVisible ? "text" : "password"} {...props} />
-      <IconButton
-        icon={{
-          src: `/icons/eye-${isVisible ? "closed" : "open"}.svg`,
-        }}
+      <button
         aria-label={isVisible ? "Hide password" : "Show password"}
         onClick={() => setIsVisible(!isVisible)}
         type="button"
-        // className="bg-white border-t-black border-b-black border-r-black border-l-black
-        // active:border-t-black/50 active:border-r-black/50 active:border-l-black/50 active:border-b-black/50"
-      />
+        className="w-9 h-9 min-h-9 min-w-9 flex items-center justify-center border-2 bg-white border-black"
+      >
+        <Image
+          src={`/icons/eye-${isVisible ? "closed" : "open"}.svg`}
+          alt=""
+          width={24}
+          height={24}
+        />
+      </button>
     </div>
   );
 }

@@ -44,7 +44,9 @@ export default function Page() {
             </A.Link>
           </div>
         </div>
-        <A.Button type="submit">Submit</A.Button>
+        <A.Button type="submit" className="px-4 h-9">
+          Submit
+        </A.Button>
       </form>
     </A.Card>
   );
