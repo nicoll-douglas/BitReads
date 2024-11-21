@@ -12,26 +12,33 @@ export default function Page() {
   return (
     <A.Card>
       <div className="p-4">
-        <h1 className="text-3xl" id={ids["2"]}>
+        <h1 className="text-3xl" id={ids[2]}>
           Login
         </h1>
       </div>
-      <form
-        className="px-4 pb-4 flex flex-col gap-6"
-        aria-labelledby={ids["2"]}
-      >
+      <form className="px-4 pb-4 flex flex-col gap-6" aria-labelledby={ids[2]}>
         <div className="flex flex-col">
-          <A.form.Label htmlFor={ids["0"]} required>
+          <A.form.Label htmlFor={ids[0]} required>
             Username or Email:
           </A.form.Label>
-          <A.form.Input className="w-full" id={ids["0"]} required />
+          <A.form.Input
+            className="w-full"
+            id={ids[0]}
+            name="usernameOrEmail"
+            required
+          />
           <A.form.ErrorMessage></A.form.ErrorMessage>
         </div>
         <div className="flex flex-col">
-          <A.form.Label htmlFor={ids["1"]} required>
+          <A.form.Label htmlFor={ids[1]} required>
             Password:
           </A.form.Label>
-          <A.form.PasswordInput className="w-full" id={ids["1"]} required />
+          <A.form.PasswordInput
+            name="password"
+            className="w-full"
+            id={ids[1]}
+            required
+          />
           <div className="flex justify-between items-start gap-4 mt-1">
             <A.form.ErrorMessage className="mt-0">
               error with password, please type

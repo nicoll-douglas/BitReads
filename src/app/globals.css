@@ -16,5 +16,5 @@ input:focus-visible {
 }
 
 ::selection {
-  @apply bg-red-500;
+  @apply bg-red-500 text-white;
 }
