@@ -21,7 +21,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       <button
         className={`bg-cyan-400 h-10 border-b-black/40 border-t-cyan-400 border-l-cyan-400 border-r-black/40 border-2 flex items-center justify-center ${className} ${
           isLoading || isDisabled
-            ? "cursor-not-allowed opacity-50"
+            ? "cursor-not-allowed opacity-60"
             : "active:border-b-cyan-400 active:border-r-cyan-400 active:border-t-black/40 active:border-l-black/40"
         }`}
         ref={ref}

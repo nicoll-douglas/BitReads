@@ -3,6 +3,7 @@
 import Input, { InputProps } from "./Input";
 import Image from "next/image";
 import { useState } from "react";
+import IconButton from "../IconButton";
 
 export default function PasswordInput(props: InputProps) {
   const [isVisible, setIsVisible] = useState<boolean>(false);
@@ -10,7 +11,7 @@ export default function PasswordInput(props: InputProps) {
   return (
     <div className="flex gap-1">
       <Input type={isVisible ? "text" : "password"} {...props} />
-      <button
+      {/* <button
         aria-label={isVisible ? "Hide password" : "Show password"}
         onClick={() => setIsVisible(!isVisible)}
         type="button"
@@ -22,7 +23,16 @@ export default function PasswordInput(props: InputProps) {
           width={24}
           height={24}
         />
-      </button>
+      </button> */}
+      <IconButton
+        icon={{
+          src: `/icons/eye-${isVisible ? "open" : "closed"}.svg`,
+          size: 6,
+        }}
+        onClick={() => setIsVisible(!isVisible)}
+        type="button"
+        aria-label={isVisible ? "Hide password" : "Show password"}
+      />
     </div>
   );
 }
