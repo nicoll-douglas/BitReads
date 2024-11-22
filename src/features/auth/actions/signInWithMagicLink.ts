@@ -3,22 +3,20 @@
 import { signIn } from "@/auth";
 import { redirect } from "next/navigation";
 import { AuthError } from "next-auth";
-import { LoginFormState } from "../types";
+import { SignInFormState } from "../types";
 import { validation } from "@/lib";
-import { z } from "zod";
 
-export default async function login(
-  previousState: LoginFormState,
+export default async function signInWithMagicLink(
+  previousState: SignInFormState,
   formData: FormData
 ) {
   const formObj = {
     email: String(formData.get("email") || ""),
+    confirmEmail: String(formData.get("confirmEmail") || ""),
   };
 
-  const emailSchema = z.object({ email: validation.emailSchema });
-
-  const result = emailSchema.safeParse(formObj);
-  let newState: LoginFormState;
+  const result = validation.signInSchema.safeParse(formObj);
+  let newState: SignInFormState;
 
   if (!result.success) {
     newState = {

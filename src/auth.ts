@@ -24,7 +24,7 @@ export const providerMap = providers
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers,
   pages: {
-    signIn: "/auth/login",
+    signIn: "/auth/sign-in",
     error: "/auth/error",
     verifyRequest: "/auth/verify",
     signOut: "/",

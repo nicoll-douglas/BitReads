@@ -2,10 +2,10 @@ import * as A from "@/components/atomic";
 import type { Metadata } from "next";
 import { auth } from "@/auth";
 import { redirect } from "next/navigation";
-import { LoginForm } from "@/features/auth";
+import { SignInForm } from "@/features/auth";
 
 export const metadata: Metadata = {
-  title: "BitReads | Login",
+  title: "BitReads | Sign In",
 };
 
 export default async function Page() {
@@ -15,12 +15,13 @@ export default async function Page() {
 
   return (
     <A.Card>
-      <div className="p-4">
-        <h1 className="text-3xl" id={"login-form-heading"}>
-          Login
+      <div className="p-4 flex gap-4 flex-col">
+        <h1 className="text-3xl" id={"sign-in-form-heading"}>
+          Sign In
         </h1>
+        <p>If your account doesn't exist we'll create one for you!</p>
       </div>
-      <LoginForm aria-labelledby="login-form-heading" />
+      <SignInForm aria-labelledby="sign-in-form-heading" />
     </A.Card>
   );
 }

@@ -1,2 +1,1 @@
-export { RegisterForm } from "./components";
-export { LoginForm } from "./components";
+export { SignInForm } from "./components";

@@ -13,8 +13,7 @@ const links = [
   new Link("/contact", "Contact"),
   new Link("/privacy", "Your Privacy"),
   new Link("/terms-of-service", "Terms of Service"),
-  new Link("/auth/login", "Login"),
-  new Link("/auth/register", "Register"),
+  new Link("/auth/sign-in", "Sign In"),
 ];
 
 export default links;

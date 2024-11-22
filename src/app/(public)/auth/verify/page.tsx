@@ -7,7 +7,7 @@ export default function Page() {
         <h1 className="text-3xl">Check Your Email</h1>
       </div>
       <div className="px-4 pb-4">
-        Please check your email, a login link has been sent to you.
+        Please check your email, a link to sign in has been sent to you.
       </div>
     </A.Card>
   );
