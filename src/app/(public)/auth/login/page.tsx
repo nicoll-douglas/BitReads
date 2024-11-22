@@ -1,13 +1,21 @@
 import * as A from "@/components/atomic";
 import { genIds } from "@/utils";
 import type { Metadata } from "next";
+import { signIn } from "@/auth";
+import { AuthError } from "next-auth";
+import { auth } from "@/auth";
+import { redirect } from "next/navigation";
 
 export const metadata: Metadata = {
   title: "BitReads | Login",
 };
 
-export default function Page() {
+export default async function Page() {
   const ids = genIds(3);
+
+  const session = await auth();
+
+  if (session) return redirect("/dashboard");
 
   return (
     <A.Card>
@@ -16,40 +24,27 @@ export default function Page() {
           Login
         </h1>
       </div>
-      <form className="px-4 pb-4 flex flex-col gap-6" aria-labelledby={ids[2]}>
+      <form
+        action={async (formData) => {
+          "use server";
+          try {
+            await signIn("resend", formData);
+          } catch (err) {
+            if (err instanceof AuthError) {
+              return redirect(`/auth/error?error=${err.type}`);
+            }
+            throw err;
+          }
+        }}
+        className="px-4 pb-4 flex flex-col gap-6"
+        aria-labelledby={ids[2]}
+      >
         <div className="flex flex-col">
           <A.form.Label htmlFor={ids[0]} required>
-            Username or Email:
+            Email:
           </A.form.Label>
-          <A.form.Input
-            className="w-full"
-            id={ids[0]}
-            name="usernameOrEmail"
-            required
-          />
+          <A.form.Input className="w-full" id={ids[0]} name="email" required />
           <A.form.ErrorMessage></A.form.ErrorMessage>
-        </div>
-        <div className="flex flex-col">
-          <A.form.Label htmlFor={ids[1]} required>
-            Password:
-          </A.form.Label>
-          <A.form.PasswordInput
-            name="password"
-            className="w-full"
-            id={ids[1]}
-            required
-          />
-          <div className="flex justify-between items-start gap-4 mt-1">
-            <A.form.ErrorMessage className="mt-0">
-              error with password, please type
-            </A.form.ErrorMessage>
-            <A.Link
-              href="/auth/forgot"
-              className="text-lg leading-5 text-nowrap ml-auto"
-            >
-              Forgot password?
-            </A.Link>
-          </div>
         </div>
         <A.Button type="submit" className="px-4 h-9">
           Submit
