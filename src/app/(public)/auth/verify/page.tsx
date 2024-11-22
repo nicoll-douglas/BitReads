@@ -1,4 +1,9 @@
 import * as A from "@/components/atomic";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "BitReads | Check Your Email",
+};
 
 export default function Page() {
   return (
