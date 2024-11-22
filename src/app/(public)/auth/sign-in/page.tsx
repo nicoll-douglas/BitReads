@@ -1,18 +1,12 @@
 import * as A from "@/components/atomic";
 import type { Metadata } from "next";
-import { auth } from "@/auth";
-import { redirect } from "next/navigation";
 import { SignInForm } from "@/features/auth";
 
 export const metadata: Metadata = {
   title: "BitReads | Sign In",
 };
 
-export default async function Page() {
-  const session = await auth();
-
-  if (session) return redirect("/dashboard");
-
+export default function Page() {
   return (
     <A.Card>
       <div className="p-4 flex gap-4 flex-col">
