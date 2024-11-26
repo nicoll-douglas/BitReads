@@ -5,7 +5,9 @@ import { SignOutBtn } from "@/features/auth";
 export default function Header() {
   return (
     <header className="flex justify-between w-full items-center">
-      <Wordmark asLink="/dashboard" className="h-8 w-[142px]" />
+      <div className="hidden xl:flex">
+        <Wordmark asLink="/dashboard" className="h-8 w-[142px]" />
+      </div>
       <nav aria-label="App">
         <A.tabs.List className="border-none max-w-fit">
           <A.tabs.Item href="/dashboard">Dashboard</A.tabs.Item>
