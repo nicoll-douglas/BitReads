@@ -18,10 +18,10 @@ export default function Item({
 
   return (
     <li
-      className={`relative border-b border-black flex -mb-[1px] px-4 py-2 ${
+      className={`relative border-b border-t-4 border-black flex -mb-[1px] px-4 py-2 ${
         active
-          ? "border-x border-t-4 border-b-transparent bg-cyan-200 shadow-[6px_2px_0_-2px_rgba(0,0,0,0.3)] z-20"
-          : "bg-cyan-300 mx-[1px] z-10"
+          ? "border-x border-b-transparent bg-cyan-200 shadow-[6px_2px_0_-2px_rgba(0,0,0,0.3)] z-20"
+          : "bg-cyan-300 mx-[1px] z-10 border-t-transparent"
       } ${className}`}
       {...rest}
     >
