@@ -3,11 +3,13 @@ import { MongoDBAdapter } from "@auth/mongodb-adapter";
 import { db } from "@/lib";
 import type { Provider } from "next-auth/providers";
 import Resend from "next-auth/providers/resend";
+import Google from "next-auth/providers/google";
 
 const providers: Provider[] = [
   Resend({
     from: "bitreads@nicolldouglas.dev",
   }),
+  Google,
 ];
 
 export const providerMap = providers
