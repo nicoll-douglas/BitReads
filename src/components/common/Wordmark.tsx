@@ -16,13 +16,13 @@ const WordmarkImage = (props: WordmarkImageProps) => (
 );
 
 interface WordmarkProps extends WordmarkImageProps {
-  asLink?: boolean;
+  asLink?: string;
 }
 
-export default function Wordmark({ asLink = true, ...rest }: WordmarkProps) {
+export default function Wordmark({ asLink, ...rest }: WordmarkProps) {
   if (asLink) {
     return (
-      <NextLink href="/" className="w-fit h-fit max-h-fit max-w-fit">
+      <NextLink href={asLink} className="w-fit h-fit max-h-fit max-w-fit">
         <WordmarkImage {...rest} />
       </NextLink>
     );

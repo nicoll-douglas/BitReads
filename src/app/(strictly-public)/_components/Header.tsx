@@ -16,7 +16,7 @@ export default function Header() {
       }`}
     >
       <div className="w-full max-w-container.xl mx-auto flex items-center px-4 lg:px-8 gap-8">
-        <Wordmark />
+        <Wordmark asLink="/" />
         <nav className="hidden lg:block ml-auto">
           <ul className="flex gap-8">
             {links.map(({ title, href }, index) => (

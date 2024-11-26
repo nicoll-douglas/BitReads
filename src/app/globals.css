@@ -4,7 +4,7 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  @apply bg-cyan-300 min-h-dvh text-black text-xl overflow-y-scroll leading-6 flex flex-col;
+  @apply bg-cyan-300 min-h-dvh text-black text-xl leading-6 flex flex-col;
 }
 
 input:focus-visible {

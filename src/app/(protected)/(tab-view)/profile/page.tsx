@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "BitReads | Dashboard",
+  title: "BitReads | Profile",
 };
 
-export default async function Page() {}
+export default function Page() {}

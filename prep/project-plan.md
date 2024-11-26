@@ -91,14 +91,11 @@ An overview of the technologies that I am planning to use for this project. Some
 
 #### Authentication
 
-- **User registration**: Allow users to sign up securely with basic credentials or OAuth2 with a seamless registration flow.
+- **User registration**: Allow users to sign up securely with ~~basic credentials~~ magic link or OAuth2 with a seamless registration flow.
 - **Login & Authentication**: Implement a login system and authentication middleware.
-- **Password Recovery**: Allow users to reset their passwords securely through their email.
 
 #### Account Management
 
-- **Two-Factor Authentication (2FA)**: Option to enable 2FA for enhanced security.
-- **Password Management**: Option for users tp securely reset user password in their account settings.
 - **Account Deactivation/Deletion**: Option for users to delete or deactivate their account whilst handling left over account data appropriately.
 - **Account Blocking**: Allow users to block others if they want to disable interaction (with the option to unblock).
 
