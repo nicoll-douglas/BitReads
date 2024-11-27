@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { useTheme, Theme } from "@/features/theme";
+import { useTheme, Themes } from "@/features/theme";
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -23,7 +23,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     ref
   ) => {
     let { theme } = useTheme();
-    theme = defaultColor ? Theme.Default : theme;
+    theme = defaultColor ? Themes.Default : theme;
 
     return (
       <button
