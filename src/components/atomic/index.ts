@@ -6,3 +6,4 @@ export * as menu from "./menu";
 export { default as IconButton } from "./IconButton";
 export { default as Divider } from "./Divider";
 export * as tabs from "./tabs";
+export { default as Loader } from "./Loader";

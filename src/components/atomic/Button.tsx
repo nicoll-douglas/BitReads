@@ -2,6 +2,7 @@
 
 import React from "react";
 import { useTheme, Themes } from "@/features/theme";
+import Loader from "./Loader";
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -36,21 +37,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {...rest}
         disabled={isLoading || isDisabled}
       >
-        {isLoading ? (
-          <div className="flex gap-2 justify-center items-center translate-y-[3px]">
-            <div className="w-1 h-1 bg-black animate-loading-bounce"></div>
-            <div
-              className="w-1 h-1 bg-black animate-loading-bounce"
-              style={{ animationDelay: "100ms" }}
-            ></div>
-            <div
-              className="w-1 h-1 bg-black animate-loading-bounce"
-              style={{ animationDelay: "300ms" }}
-            ></div>
-          </div>
-        ) : (
-          children
-        )}
+        {isLoading ? <Loader /> : children}
       </button>
     );
   }

@@ -43,6 +43,12 @@ export default {
       pattern: /border-(red|cyan|yellow|green|orange)-[0-9]{3}/,
       variants: ["active"],
     },
+    {
+      pattern: /w-[0-9]{1}/,
+    },
+    {
+      pattern: /h-[0-9]{1}/,
+    },
   ],
   plugins: [],
 } satisfies Config;
