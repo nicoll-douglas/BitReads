@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { validation } from "@/lib";
+import { validation } from "@/server";
 
 export interface SignInFormState {
   errors: z.inferFormattedError<typeof validation.signInSchema> | undefined;

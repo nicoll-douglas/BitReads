@@ -4,7 +4,7 @@ import { signIn } from "@/auth";
 import { redirect } from "next/navigation";
 import { AuthError } from "next-auth";
 import { SignInFormState } from "../types";
-import { validation } from "@/lib";
+import { validation } from "@/server";
 
 export default async function signInWithMagicLink(
   previousState: SignInFormState,

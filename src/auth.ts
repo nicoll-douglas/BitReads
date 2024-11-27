@@ -1,9 +1,9 @@
 import NextAuth from "next-auth";
 import { MongoDBAdapter } from "@auth/mongodb-adapter";
-import { mongo } from "@/lib";
 import type { Provider } from "next-auth/providers";
 import Resend from "next-auth/providers/resend";
 import Google from "next-auth/providers/google";
+import { mongo } from "@/server";
 
 const providers: Provider[] = [
   Resend({
