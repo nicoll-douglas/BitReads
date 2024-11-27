@@ -1,6 +1,6 @@
 import NextAuth from "next-auth";
 import { MongoDBAdapter } from "@auth/mongodb-adapter";
-import { db } from "@/lib";
+import { mongo } from "@/lib";
 import type { Provider } from "next-auth/providers";
 import Resend from "next-auth/providers/resend";
 import Google from "next-auth/providers/google";
@@ -31,7 +31,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     verifyRequest: "/auth/verify",
     signOut: "/",
   },
-  adapter: MongoDBAdapter(db.client),
+  adapter: MongoDBAdapter(mongo.client),
   session: {
     strategy: "jwt",
   },
