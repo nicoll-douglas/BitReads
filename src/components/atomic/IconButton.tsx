@@ -1,9 +1,8 @@
 import React from "react";
-import Button from "./Button";
+import Button, { ButtonProps } from "./Button";
 import Image from "next/image";
 
-interface IconButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface IconButtonProps extends ButtonProps {
   "aria-label": string;
   icon: {
     size?: number;

@@ -21,6 +21,7 @@ export default function MobileMenu() {
         aria-controls="site-nav-content"
         onClick={onToggle}
         ref={refs.activator}
+        defaultColor
       />
       {isOpen && (
         <A.menu.Content id="site-nav-content" aria-labelledby="site-nav-btn">

@@ -64,7 +64,12 @@ export default function SignInForm(props: LoginForm) {
           {confirmEmailError}
         </A.form.ErrorMessage>
       </div>
-      <A.Button isLoading={isPending} type="submit" className="px-4 h-9">
+      <A.Button
+        isLoading={isPending}
+        type="submit"
+        className="px-4 h-9"
+        defaultColor
+      >
         Submit
       </A.Button>
     </form>

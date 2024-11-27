@@ -1,7 +1,8 @@
 import React from "react";
 import { auth } from "@/auth";
 import { redirect } from "next/navigation";
-import { Header, Container } from "./_components";
+import { Header, Main, Container } from "./_components";
+import { ChangeThemeBtn } from "@/features/theme";
 
 export default async function Layout({
   children,
@@ -13,12 +14,16 @@ export default async function Layout({
   if (!session) return redirect("/auth/sign-in");
 
   return (
-    <div className="p-4 flex flex-col min-h-dvh max-w-[1440px] w-full mx-auto">
-      <Header />
-      <Container>
-        <div style={{ minHeight: "200dvh" }}>bing bong hello</div>
-        {children}
-      </Container>
-    </div>
+    <Container>
+      <div className="p-4 flex flex-col min-h-dvh max-w-[1440px] w-full mx-auto">
+        <Header />
+        <Main>
+          <div style={{ minHeight: "200dvh" }}>
+            <ChangeThemeBtn />
+          </div>
+          {children}
+        </Main>
+      </div>
+    </Container>
   );
 }

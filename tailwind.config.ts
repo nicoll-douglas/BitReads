@@ -31,5 +31,18 @@ export default {
       lg: "8px 8px rgb(0, 0, 0, 0.3)",
     },
   },
+  safelist: [
+    {
+      pattern: /bg-(red|cyan|yellow|green|orange)-[0-9]{3}/,
+    },
+    {
+      pattern: /border-(l|r|b|t|x|y)-(red|cyan|yellow|green|orange)-[0-9]{3}/,
+      variants: ["active"],
+    },
+    {
+      pattern: /border-(red|cyan|yellow|green|orange)-[0-9]{3}/,
+      variants: ["active"],
+    },
+  ],
   plugins: [],
 } satisfies Config;

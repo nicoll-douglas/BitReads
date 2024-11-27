@@ -1,9 +1,9 @@
 enum Theme {
-  Cyan = "cyan",
-  Red = "red",
-  Yellow = "yellow",
-  Green = "green",
-  Default = Theme.Cyan,
+  A = "cyan",
+  B = "red",
+  C = "orange",
+  D = "green",
+  Default = Theme.A,
 }
 
 export default Theme;

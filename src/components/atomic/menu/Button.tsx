@@ -1,7 +1,7 @@
-import { IconButton } from "@/components/atomic";
+import IconButton, { IconButtonProps } from "../IconButton";
 import React from "react";
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends Omit<IconButtonProps, "icon"> {
   id: string;
   onClick: () => unknown;
   "aria-label": string;
