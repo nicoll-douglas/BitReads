@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <A.Card>
+    <A.Card defaultColor>
       <div className="p-4">
         <h1 className="text-3xl">Check Your Email</h1>
       </div>

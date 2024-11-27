@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <A.Card>
+    <A.Card defaultColor>
       <div className="p-4 flex gap-4 flex-col">
         <h1 className="text-3xl" id={"sign-in-form-heading"}>
           Sign In

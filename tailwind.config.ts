@@ -49,6 +49,7 @@ export default {
     {
       pattern: /h-[0-9]{1}/,
     },
+    "mt-9",
   ],
   plugins: [],
 } satisfies Config;

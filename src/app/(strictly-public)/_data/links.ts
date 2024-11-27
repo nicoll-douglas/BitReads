@@ -1,12 +1,6 @@
-class Link {
-  href: string;
-  title: string;
+import { classes } from "@/lib";
 
-  constructor(href: string, title: string) {
-    this.href = href;
-    this.title = title;
-  }
-}
+const { Link } = classes;
 
 const links = [
   new Link("/about", "About"),

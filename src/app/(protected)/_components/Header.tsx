@@ -2,28 +2,30 @@ import { Wordmark } from "@/components/common";
 import * as A from "@/components/atomic";
 import { SignOutBtn } from "@/features/auth";
 import { ChangeThemeBtn } from "@/features/theme";
+import MobileMenu from "./MobileMenu";
+import links from "../_data/links";
 
 export default function Header() {
   return (
-    <header className="flex justify-between w-full items-center">
-      <div className="hidden xl:flex">
+    <header className="flex justify-between w-full items-center mb-4 lg:mb-0">
+      <div className="flex lg:hidden xl:flex">
         <Wordmark
           asLink="/dashboard"
           className="h-8 w-[142px]"
           defaultColor={false}
         />
       </div>
-      <nav aria-label="App">
+      <nav aria-label="App" className="hidden lg:flex">
         <A.tabs.List className="border-none max-w-fit">
-          <A.tabs.Item href="/dashboard">Dashboard</A.tabs.Item>
-          <A.tabs.Item href="/shelves">Shelves</A.tabs.Item>
-          <A.tabs.Item href="/profile">Profile</A.tabs.Item>
-          <A.tabs.Item href="/social">Social</A.tabs.Item>
-          <A.tabs.Item href="/explore">Explore</A.tabs.Item>
-          <A.tabs.Item href="/settings">Settings</A.tabs.Item>
+          {links.map(({ href, title }, index) => (
+            <A.tabs.Item href={href} key={index}>
+              {title}
+            </A.tabs.Item>
+          ))}
         </A.tabs.List>
       </nav>
       <div className="flex gap-[6px]">
+        <MobileMenu />
         <ChangeThemeBtn />
         <SignOutBtn className="h-8 max-h-8 text-lg" />
       </div>

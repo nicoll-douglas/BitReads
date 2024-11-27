@@ -7,27 +7,27 @@ import links from "../_data/links";
 export default function MobileMenu() {
   const { onKeyDown, onClose, onToggle, isOpen, refs } =
     useMenu<HTMLAnchorElement>();
-  useClickAway("#site-nav-container", onClose);
+  useClickAway("#app-nav-container", onClose);
 
   return (
     <A.menu.Container
-      className="ml-auto lg:hidden"
-      id="site-nav-container"
+      className="lg:hidden"
+      id="app-nav-container"
       onKeyDown={onKeyDown}
     >
       <A.menu.Button
-        id="site-nav-btn"
-        aria-label="Site Navigation"
-        aria-controls="site-nav-content"
+        id="app-nav-btn"
+        aria-label="App Navigation"
+        aria-controls="app-nav-content"
         onClick={onToggle}
         ref={refs.activator}
-        defaultColor
+        size={8}
       />
       {isOpen && (
         <A.menu.Content
-          id="site-nav-content"
-          aria-labelledby="site-nav-btn"
-          defaultColor
+          id="app-nav-content"
+          aria-labelledby="app-nav-btn"
+          margin={9}
         >
           {links.map(({ title, href }, index) => {
             return (
