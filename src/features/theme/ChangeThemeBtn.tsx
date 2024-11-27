@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
-import { Button } from "@/components/atomic";
+import { IconButton } from "@/components/atomic";
 import useTheme from "./useTheme";
 import getNextTheme from "./getNextTheme";
 
@@ -10,8 +10,11 @@ export default function ChangeThemeBtn() {
   const nextTheme = getNextTheme(theme);
 
   return (
-    <Button onClick={() => setTheme(nextTheme)} className="px-4">
-      Change Theme
-    </Button>
+    <IconButton
+      icon={{ src: "/icons/theme-icon.svg" }}
+      aria-label="Change theme"
+      onClick={() => setTheme(nextTheme)}
+      size={8}
+    />
   );
 }

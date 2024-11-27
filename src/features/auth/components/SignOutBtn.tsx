@@ -7,13 +7,14 @@ export default function SignOutBtn({
 }: React.HTMLAttributes<HTMLButtonElement>) {
   return (
     <form action={signOut} role="presentation">
-      <Button type="submit" className={`px-4 hidden xl:flex h-9 ${className}`}>
+      <Button type="submit" className={`px-4 hidden xl:flex ${className}`}>
         Sign Out
       </Button>
       <IconButton
         aria-label="Sign Out"
-        icon={{ src: "/icons/exit-icon.svg", size: 4 }}
-        className={`xl:hidden h-8 w-8 min-h-8 min-w-8 ${className}`}
+        icon={{ src: "/icons/exit-icon.svg", size: 5 }}
+        className={`xl:hidden ${className}`}
+        size={8}
       />
     </form>
   );

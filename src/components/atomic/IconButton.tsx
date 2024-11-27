@@ -8,15 +8,16 @@ export interface IconButtonProps extends ButtonProps {
     size?: number;
     src: string;
   };
+  size?: number;
 }
 
 const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
-  ({ icon, className = "", ...rest }, ref) => {
-    const size = icon.size || 5;
+  ({ icon, className = "", size = 9, ...rest }, ref) => {
+    const iconSize = icon.size || 5;
 
     return (
       <Button
-        className={`h-9 w-9 min-w-9 min-h-9 px-0 ${className}`}
+        className={`h-${size} w-${size} min-w-${size} min-h-${size} px-0 ${className}`}
         ref={ref}
         {...rest}
       >
@@ -25,8 +26,8 @@ const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
           src={icon.src}
           width={20}
           height={20}
-          className={`h-${size} w-${size} min-w-${size} min-h-${size}`}
-          style={{ height: `${4 * size}px`, width: `${4 * size}px` }}
+          className={`h-${iconSize} w-${iconSize} min-w-${iconSize} min-h-${iconSize}`}
+          style={{ height: `${4 * iconSize}px`, width: `${4 * iconSize}px` }}
         />
       </Button>
     );

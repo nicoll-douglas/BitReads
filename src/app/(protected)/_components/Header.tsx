@@ -1,6 +1,7 @@
 import { Wordmark } from "@/components/common";
 import * as A from "@/components/atomic";
 import { SignOutBtn } from "@/features/auth";
+import { ChangeThemeBtn } from "@/features/theme";
 
 export default function Header() {
   return (
@@ -22,7 +23,10 @@ export default function Header() {
           <A.tabs.Item href="/settings">Settings</A.tabs.Item>
         </A.tabs.List>
       </nav>
-      <SignOutBtn className="h-8 max-h-8 text-lg" />
+      <div className="flex gap-[6px]">
+        <ChangeThemeBtn />
+        <SignOutBtn className="h-8 max-h-8 text-lg" />
+      </div>
     </header>
   );
 }
