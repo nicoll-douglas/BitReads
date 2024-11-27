@@ -1,19 +1,31 @@
+"use client";
+
 import NextLink from "next/link";
 import Image, { ImageProps } from "next/image";
+import { useTheme, Themes } from "@/features/theme";
 
-type WordmarkImageProps = Omit<ImageProps, "src" | "alt">;
+interface WordmarkImageProps extends Omit<ImageProps, "src" | "alt"> {
+  defaultColor?: boolean;
+}
 
-const WordmarkImage = (props: WordmarkImageProps) => (
-  <Image
-    src={"/wordmark.svg"}
-    alt="BitReads"
-    width={160}
-    height={32}
-    priority
-    className="h-9 w-40 min-h-9 min-w-40"
-    {...props}
-  />
-);
+const WordmarkImage = ({
+  defaultColor = true,
+  ...rest
+}: WordmarkImageProps) => {
+  const { theme } = useTheme();
+
+  return (
+    <Image
+      src={`/wordmarks/wordmark-${defaultColor ? Themes.Default : theme}.svg`}
+      alt="BitReads"
+      width={160}
+      height={32}
+      priority
+      className="h-9 w-40 min-h-9 min-w-40"
+      {...rest}
+    />
+  );
+};
 
 interface WordmarkProps extends WordmarkImageProps {
   asLink?: string;
