@@ -16,10 +16,7 @@ export default async function Layout({
     <Container>
       <div className="p-4 flex flex-col min-h-dvh max-w-[1440px] w-full mx-auto">
         <Header />
-        <Main>
-          <div style={{ minHeight: "200dvh" }}></div>
-          {children}
-        </Main>
+        <Main>{children}</Main>
       </div>
     </Container>
   );
