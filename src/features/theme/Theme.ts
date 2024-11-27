@@ -1,9 +1,9 @@
-enum Themes {
+enum Theme {
   Cyan = "cyan",
   Red = "red",
   Yellow = "yellow",
   Green = "green",
-  Default = Themes.Cyan,
+  Default = Theme.Cyan,
 }
 
-export default Themes;
+export default Theme;
