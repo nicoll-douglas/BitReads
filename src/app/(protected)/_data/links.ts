@@ -4,7 +4,7 @@ const { Link } = classes;
 
 const links = [
   new Link("/dashboard", "Dashboard"),
-  new Link("/shelves", "Shelves"),
+  new Link("/library", "Library"),
   new Link("/profile", "Profile"),
   new Link("/social", "Social"),
   new Link("/explore", "Explore"),

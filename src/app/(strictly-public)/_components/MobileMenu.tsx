@@ -21,13 +21,14 @@ export default function MobileMenu() {
         aria-controls="site-nav-content"
         onClick={onToggle}
         ref={refs.activator}
-        defaultColor
+        themeSync={false}
       />
       {isOpen && (
         <A.menu.Content
           id="site-nav-content"
           aria-labelledby="site-nav-btn"
-          defaultColor
+          themeSync={false}
+          className="mt-2"
         >
           {links.map(({ title, href }, index) => {
             return (

@@ -11,10 +11,10 @@ export default function ChangeThemeBtn() {
 
   return (
     <IconButton
-      icon={{ src: "/icons/theme-icon.svg" }}
+      icon="/icons/theme-icon.svg"
       aria-label="Change theme"
       onClick={() => setTheme(nextTheme)}
-      size={8}
+      size={"sm"}
     />
   );
 }

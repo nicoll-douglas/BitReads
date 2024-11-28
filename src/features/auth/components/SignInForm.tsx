@@ -67,8 +67,9 @@ export default function SignInForm(props: LoginForm) {
       <A.Button
         isLoading={isPending}
         type="submit"
-        className="px-4 h-9"
-        defaultColor
+        className="px-4"
+        themeSync={false}
+        size="md"
       >
         Submit
       </A.Button>

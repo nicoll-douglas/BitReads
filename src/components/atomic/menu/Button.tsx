@@ -12,7 +12,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (props, ref) => {
     return (
       <IconButton
-        icon={{ src: "/icons/hamburger.svg" }}
+        icon="/icons/hamburger.svg"
         aria-haspopup="true"
         ref={ref}
         {...props}

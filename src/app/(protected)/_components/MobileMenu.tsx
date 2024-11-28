@@ -21,13 +21,14 @@ export default function MobileMenu() {
         aria-controls="app-nav-content"
         onClick={onToggle}
         ref={refs.activator}
-        size={8}
+        size={"sm"}
       />
       {isOpen && (
         <A.menu.Content
           id="app-nav-content"
           aria-labelledby="app-nav-btn"
-          margin={9}
+          offset="sm"
+          className="mt-[6px]"
         >
           {links.map(({ title, href }, index) => {
             return (

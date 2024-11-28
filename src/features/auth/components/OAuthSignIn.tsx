@@ -6,11 +6,7 @@ export default function OAuthSignIn() {
   return (
     <section aria-label="Sign In With OAuth" className="flex p-4 flex-col">
       <form action={signInWithGoogle}>
-        <Button
-          className="w-full flex gap-2 px-4 h-fit py-1"
-          type="submit"
-          defaultColor
-        >
+        <Button className="w-full gap-2 px-4" type="submit" themeSync={false}>
           <Image
             src={"/icons/google-icon.svg"}
             width={33}

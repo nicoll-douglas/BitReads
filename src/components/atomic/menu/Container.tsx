@@ -4,11 +4,7 @@ export default function Container({
   ...rest
 }: React.HTMLProps<HTMLDivElement>) {
   return (
-    <div
-      className={`relative block w-fit h-fit ${className}`}
-      id="mobile-menu"
-      {...rest}
-    >
+    <div className={`relative block w-fit h-fit ${className}`} {...rest}>
       {children}
     </div>
   );

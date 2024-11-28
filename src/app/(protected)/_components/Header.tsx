@@ -27,7 +27,7 @@ export default function Header() {
       <div className="flex gap-[6px]">
         <MobileMenu />
         <ChangeThemeBtn />
-        <SignOutBtn className="h-8 max-h-8 text-lg" />
+        <SignOutBtn />
       </div>
     </header>
   );
