@@ -11,15 +11,15 @@ const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
   ({ icon, className = "", size = "md", ...rest }, ref) => {
     const sizes = {
       sm: {
-        btn: "w-8",
+        btn: "w-8 min-w-8 min-h-8",
         icon: "w-5 h-5",
       },
       md: {
-        btn: "w-9",
+        btn: "w-9 min-w-9 min-h-9",
         icon: "w-5 h-5",
       },
       lg: {
-        btn: "w-10",
+        btn: "w-10 min-w-10 min-h-10",
         icon: "w-6 h-6",
       },
     };

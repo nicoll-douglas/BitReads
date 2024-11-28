@@ -1,6 +1,6 @@
 import { Wordmark } from "@/components/common";
 import * as A from "@/components/atomic";
-import { SignOutBtn } from "@/features/auth";
+import { SignOutBtn, SignOutIconBtn } from "@/features/auth";
 import { ChangeThemeBtn } from "@/features/theme";
 import MobileMenu from "./MobileMenu";
 import links from "../_data/links";
@@ -22,8 +22,9 @@ export default function Header() {
       </nav>
       <div className="flex gap-[6px]">
         <MobileMenu />
-        <ChangeThemeBtn />
-        <SignOutBtn />
+        <ChangeThemeBtn size="sm" />
+        <SignOutBtn className="px-4" formClassName="hidden xl:flex" size="sm" />
+        <SignOutIconBtn formClassName="xl:hidden" size="sm" />
       </div>
     </header>
   );

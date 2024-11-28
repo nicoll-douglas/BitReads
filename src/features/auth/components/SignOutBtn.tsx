@@ -1,18 +1,35 @@
-import { Button, IconButton } from "@/components/atomic";
+import { Button, IconButton, ButtonProps } from "@/components/atomic";
 import { signOut } from "../actions";
 import React from "react";
 
-export default function SignOutBtn() {
+interface SignOutBtnProps extends ButtonProps {
+  formClassName?: string;
+}
+
+export default function SignOutBtn({
+  formClassName = "",
+  ...rest
+}: SignOutBtnProps) {
   return (
-    <form action={signOut} role="presentation">
-      <Button type="submit" className={`px-4 hidden xl:flex`} size="sm">
+    <form action={signOut} role="presentation" className={formClassName}>
+      <Button type="submit" {...rest}>
         Sign Out
       </Button>
+    </form>
+  );
+}
+
+export function SignOutIconBtn({
+  formClassName = "",
+  ...rest
+}: SignOutBtnProps) {
+  return (
+    <form action={signOut} role="presentation" className={formClassName}>
       <IconButton
+        type="submit"
         aria-label="Sign Out"
         icon="/icons/exit-icon.svg"
-        className={`xl:hidden`}
-        size={"sm"}
+        {...rest}
       />
     </form>
   );

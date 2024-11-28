@@ -1,1 +1,6 @@
-export { SignInForm, OAuthSignIn, SignOutBtn } from "./components";
+export {
+  SignInForm,
+  OAuthSignIn,
+  SignOutBtn,
+  SignOutIconBtn,
+} from "./components";
