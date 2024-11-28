@@ -9,11 +9,7 @@ export default function Header() {
   return (
     <header className="flex justify-between w-full items-center mb-4 lg:mb-0">
       <div className="flex lg:hidden xl:flex">
-        <Wordmark
-          asLink="/dashboard"
-          className="h-8 w-[142px]"
-          defaultColor={false}
-        />
+        <Wordmark asLink="/dashboard" size="sm" />
       </div>
       <nav aria-label="App" className="hidden lg:flex">
         <A.tabs.List className="border-none max-w-fit">
