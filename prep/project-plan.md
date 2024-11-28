@@ -106,7 +106,22 @@ An overview of the technologies that I am planning to use for this project. Some
 - **Account Reporting**: A reports system for handling suspected violations of community guidelines which admins can review in their dashboard.
 - **Error Monitoring**: Detect and log system errors for proactive troubleshooting and maintenance.
 
-### 4.2 Core
+### 4.2 Book Management
+
+- Users are able to search through books databse (Google Books API)
+- Books have associated data-display such as cover, title, author, id and so on
+- Users can perform certain actions on books add to shelves
+- Users have different "shelves" of books in their library
+- Users can search through their shelves and library
+- Users can filter their lists (alphabetical author, alphabetical title, date added)
+- Users can create custom shelves
+
+### Shelves
+
+- Books Read
+- Currently Reading
+- Books Want To Read
+- Favourites
 
 #### Book Management
 
