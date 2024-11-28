@@ -27,12 +27,6 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ) => {
     let { theme } = useTheme();
 
-    const sizes = {
-      sm: "h-8 text-lg",
-      md: "h-9 text-xl",
-      lg: "h-10 text-xl",
-    };
-
     theme = themeSync ? theme : Themes.Default;
 
     const classes = {
@@ -41,11 +35,18 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       themed: `bg-${theme}-400 border-t-${theme}-400 border-l-${theme}-400`,
       loadingOrDisabled: "cursor-not-allowed opacity-60",
       active: `active:border-b-${theme}-400 active:border-r-${theme}-400 active:border-t-black/50 active:border-l-black/50`,
+      sizes: {
+        sm: "h-8 text-lg",
+        md: "h-9 text-xl",
+        lg: "h-10 text-xl",
+      },
     };
 
     return (
       <button
-        className={`${classes.default} ${classes.themed} ${sizes[size]} ${
+        className={`${classes.default} ${classes.themed} ${
+          classes.sizes[size]
+        } ${
           isLoading || isDisabled ? classes.loadingOrDisabled : classes.active
         } ${className}`}
         ref={ref}
