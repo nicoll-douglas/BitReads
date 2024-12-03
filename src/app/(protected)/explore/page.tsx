@@ -1,4 +1,4 @@
-import { SearchInput } from "@/features/search-books";
+import { Search } from "@/features/search-books";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -6,5 +6,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <SearchInput />;
+  return <Search />;
 }

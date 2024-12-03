@@ -3,12 +3,22 @@
 
 import { useEffect, useState } from "react";
 
-function LoaderInnate({ className = "" }: { className?: string }) {
+interface LoaderInnateProps {
+  className?: string;
+  gap?: "sm" | "md" | "lg";
+}
+
+function LoaderInnate({ className = "", gap = "md" }: LoaderInnateProps) {
   const classesA = `w-1 h-1 bg-black animate-loading-bounce`;
+  const gapClass = {
+    sm: "gap-1",
+    md: "gap-2",
+    lg: "gap-3",
+  };
 
   return (
     <div
-      className={`gap-2 flex justify-center items-center translate-y-[3px] ${className}`}
+      className={`${gapClass[gap]} flex justify-center items-center translate-y-[3px] ${className}`}
       role="status"
       aria-label="Loading"
     >
@@ -19,13 +29,11 @@ function LoaderInnate({ className = "" }: { className?: string }) {
   );
 }
 
-export default function Loader({
-  delay,
-  className,
-}: {
+interface LoaderProps extends LoaderInnateProps {
   delay?: number;
-  className?: string;
-}) {
+}
+
+export default function Loader({ delay, ...rest }: LoaderProps) {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
@@ -34,7 +42,7 @@ export default function Loader({
     return () => clearTimeout(timeout);
   }, []);
 
-  if (!delay) return <LoaderInnate />;
+  if (!delay) return <LoaderInnate {...rest} />;
 
-  return show && <LoaderInnate className={className} />;
+  return show && <LoaderInnate {...rest} />;
 }

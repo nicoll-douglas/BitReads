@@ -18,3 +18,7 @@ input:focus-visible {
 ::selection {
   @apply bg-red-500 text-white;
 }
+
+.no-overflow {
+  @apply text-ellipsis text-nowrap w-full overflow-hidden max-w-fit block;
+}

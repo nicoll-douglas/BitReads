@@ -50,8 +50,9 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           isLoading || isDisabled ? classes.loadingOrDisabled : classes.active
         } ${className}`}
         ref={ref}
-        {...rest}
         disabled={isLoading || isDisabled}
+        type="button"
+        {...rest}
       >
         {isLoading ? <Loader /> : children}
       </button>
