@@ -11,7 +11,10 @@ export default async function searchForBook(
 
   try {
     const result = await gb.methods.volumeSearch(
-      (formData.get("query") || '""').toString()
+      (formData.get("query") || '""').toString(),
+      {
+        maxResults: 18,
+      }
     );
 
     return { query, data: result };

@@ -23,7 +23,7 @@ export default function Search() {
         </h2>
       )}
       <ul
-        className="grid w-full grid-cols-3 gap-4"
+        className="grid w-full grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-4"
         aria-labelledby="results-heading"
       >
         {state.data?.items?.map((props, index) => (
