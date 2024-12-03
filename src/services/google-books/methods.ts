@@ -17,7 +17,13 @@ export async function volumeSearch(
       query
     )}&fields=${options?.filter || DEFAULT_SEARCH_FILTER}&maxResults=${
       options?.maxResults || 12
-    }`
+    }`,
+    {
+      headers: {
+        "Accept-Encoding": "gzip",
+        "User-Agent": "BitReads/1.0.0 (gzip)",
+      },
+    }
   );
   return response.json();
 }
