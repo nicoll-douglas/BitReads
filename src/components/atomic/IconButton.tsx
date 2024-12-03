@@ -10,6 +10,10 @@ export interface IconButtonProps extends ButtonProps {
 const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
   ({ icon, className = "", size = "md", ...rest }, ref) => {
     const sizes = {
+      xs: {
+        btn: "w-6 min-w-6 min-h-6",
+        icon: "w-3 h-3",
+      },
       sm: {
         btn: "w-8 min-w-8 min-h-8",
         icon: "w-5 h-5",

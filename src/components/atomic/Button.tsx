@@ -9,7 +9,7 @@ export interface ButtonProps
   isLoading?: boolean;
   isDisabled?: boolean;
   themeSync?: boolean;
-  size?: "sm" | "md" | "lg";
+  size?: "xs" | "sm" | "md" | "lg";
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
@@ -36,6 +36,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       loadingOrDisabled: "cursor-not-allowed opacity-60",
       active: `active:border-b-${theme}-400 active:border-r-${theme}-400 active:border-t-black/50 active:border-l-black/50`,
       sizes: {
+        xs: "h-6 text-base",
         sm: "h-8 text-lg",
         md: "h-9 text-xl",
         lg: "h-10 text-xl",
