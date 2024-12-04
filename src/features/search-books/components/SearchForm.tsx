@@ -2,13 +2,13 @@ import type { SearchFormState } from "../types";
 import * as A from "@/components/atomic";
 
 interface SearchFormProps {
-  state: SearchFormState;
+  actionState: SearchFormState;
   action: (payload: FormData) => void;
   isPending: boolean;
 }
 
 export default function SearchForm({
-  state,
+  actionState,
   action,
   isPending,
 }: SearchFormProps) {
@@ -24,7 +24,7 @@ export default function SearchForm({
           id="search-books-input"
           className="flex-1 w-full"
           name="query"
-          defaultValue={state.query}
+          defaultValue={actionState.query}
         />
         <A.IconButton
           icon="/icons/search.svg"

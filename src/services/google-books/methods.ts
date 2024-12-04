@@ -1,7 +1,5 @@
 import { SearchResults } from "./types";
-
-const DEFAULT_SEARCH_FILTER =
-  "totalItems,items(id,selfLink,volumeInfo(title,authors,publisher,publishedDate,imageLinks))";
+import { DEFAULT_SEARCH_FILTER, API_URL } from "./constants";
 
 interface volumeSearchOptions {
   filter?: string;
@@ -13,11 +11,9 @@ export async function volumeSearch(
   options?: volumeSearchOptions
 ): Promise<SearchResults> {
   const response = await fetch(
-    `${process.env.BOOKS_API_URL}/volumes?q=${encodeURIComponent(
-      query
-    )}&fields=${options?.filter || DEFAULT_SEARCH_FILTER}&maxResults=${
-      options?.maxResults || 12
-    }`,
+    `${API_URL}/volumes?q=${encodeURIComponent(query)}&fields=${
+      options?.filter || DEFAULT_SEARCH_FILTER
+    }&maxResults=${options?.maxResults || 12}`,
     {
       headers: {
         "Accept-Encoding": "gzip",

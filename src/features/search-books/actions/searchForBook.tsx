@@ -1,5 +1,3 @@
-"use server";
-
 import type { SearchFormState } from "../types";
 import { gbooks } from "@/services";
 
@@ -20,7 +18,6 @@ export default async function searchForBook(
     return { query, data: result };
   } catch (err) {
     console.log(err);
+    return { query, data: null, error: true };
   }
-
-  return { query, data: null };
 }

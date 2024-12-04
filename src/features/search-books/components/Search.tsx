@@ -16,8 +16,8 @@ export default function Search() {
 
   return (
     <section aria-label="Search Books">
-      <SearchForm state={state} action={action} isPending={isPending} />
-      <SearchResults results={state.data} />
+      <SearchForm actionState={state} action={action} isPending={isPending} />
+      <SearchResults actionState={state} />
     </section>
   );
 }
