@@ -1,2 +1,2 @@
-export { default as searchForBook } from "./searchForBook";
-export { default as handleSearchParams } from "./handleSearchParams";
+export { default as search } from "./search";
+export { default as getPage } from "./getPage";

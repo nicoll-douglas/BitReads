@@ -1,1 +1,1 @@
-export const SEARCH_RESULTS_COUNT = 18;
+export const SEARCH_RESULTS_COUNT = 12;

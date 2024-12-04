@@ -1,32 +1,29 @@
-import BookPreview from "./BookPreview";
-import { SearchFormState } from "../types";
+"use client";
 
-export default function SearchResults({
-  actionState,
-}: {
-  actionState: SearchFormState;
-}) {
-  const searchResults = actionState.data;
-  const isError = actionState.error;
+import BookPreview from "./BookPreview";
+import { useSearch } from "../hooks";
+
+export default function SearchResults() {
+  const { results } = useSearch();
 
   return (
     <div className="w-full">
-      {(searchResults || isError) && (
+      {(results.data || results.error) && (
         <h2 className="mb-1" id="results-heading">
           Results:
         </h2>
       )}
-      {searchResults && (
+      {results.data && (
         <ul
           className="grid w-full grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-4"
           aria-labelledby="results-heading"
         >
-          {searchResults.items?.map((props, index) => (
+          {results.data.items?.map((props, index) => (
             <BookPreview index={index} key={index} {...props} />
           ))}
         </ul>
       )}
-      {isError && (
+      {results.error && (
         <p className="text-red-500">Something went wrong. Please try again.</p>
       )}
     </div>

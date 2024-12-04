@@ -1,21 +1,15 @@
-import type { SearchFormState } from "../types";
+"use client";
+
 import * as A from "@/components/atomic";
+import { useSearch } from "../hooks";
 
-interface SearchFormProps {
-  actionState: SearchFormState;
-  action: (payload: FormData) => void;
-  isPending: boolean;
-}
+export default function SearchForm() {
+  const { form } = useSearch();
 
-export default function SearchForm({
-  actionState,
-  action,
-  isPending,
-}: SearchFormProps) {
   return (
     <form
       className="flex flex-col max-w-container.xs mb-4"
-      action={action}
+      action={form.action}
       aria-label="Search Books Form"
     >
       <A.form.Label htmlFor="search-books-input" required>
@@ -27,13 +21,13 @@ export default function SearchForm({
           className="flex-1 w-full"
           name="query"
           required
-          defaultValue={actionState.query}
+          defaultValue={form.query}
         />
         <A.IconButton
           icon="/icons/search.svg"
           aria-label="Search"
           type="submit"
-          isLoading={isPending}
+          isLoading={form.isPending}
         />
         {/* <A.IconButton icon="/icons/filter.svg" aria-label="Filter" /> */}
       </div>

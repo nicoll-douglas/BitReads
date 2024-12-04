@@ -3,24 +3,32 @@ import {
   useRouter,
   usePathname,
 } from "next/navigation";
+import type { ReadonlyURLSearchParams } from "next/navigation";
 
-export default function useSearchParams() {
+type SearchParamsObject = { [key: string]: string | null };
+type SearchParamSetter = (pairs: SearchParamsObject) => void;
+
+export default function useSearchParams(): [
+  ReadonlyURLSearchParams,
+  SearchParamSetter
+] {
   const currentSearchParams = useNextSearchParams();
   const searchParams = new URLSearchParams(currentSearchParams);
+
   const pathname = usePathname();
   const { replace } = useRouter();
 
-  function setSearchParam(param: string, value: string | null) {
-    if (param) {
-      if (value) {
-        searchParams.set(param, value);
-        replace(`${pathname}?${searchParams.toString()}`);
-        return;
+  function setSearchParams(pairs: SearchParamsObject) {
+    Object.entries(pairs).forEach(([key, value]) => {
+      if (!value) {
+        searchParams.delete(key);
+      } else {
+        searchParams.set(key, value);
       }
+    });
 
-      searchParams.delete(param);
-    }
+    replace(`${pathname}?${searchParams.toString()}`);
   }
 
-  return [currentSearchParams, setSearchParam];
+  return [currentSearchParams, setSearchParams];
 }

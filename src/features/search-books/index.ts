@@ -1,2 +1,2 @@
-export { Search } from "./components";
-export { handleSearchParams } from "./actions";
+export { SearchForm, SearchResults, PaginationBtns } from "./components";
+export { SearchProvider } from "./contexts";
