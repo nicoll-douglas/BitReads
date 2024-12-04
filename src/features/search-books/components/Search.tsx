@@ -6,12 +6,16 @@ import { useActionState } from "react";
 import SearchForm from "./SearchForm";
 import SearchResults from "./SearchResults";
 
-export default function Search() {
-  const initial = { query: "", data: null };
+export default function Search({
+  initialState,
+}: {
+  initialState: SearchFormState;
+}) {
+  // const initial: SearchFormState = { query: "", data: null };
 
   const [state, action, isPending] = useActionState<SearchFormState, FormData>(
     searchForBook,
-    initial
+    initialState
   );
 
   return (

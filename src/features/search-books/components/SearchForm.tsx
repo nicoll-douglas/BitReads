@@ -18,12 +18,15 @@ export default function SearchForm({
       action={action}
       aria-label="Search Books Form"
     >
-      <A.form.Label htmlFor="search-books-input">Search Books:</A.form.Label>
+      <A.form.Label htmlFor="search-books-input" required>
+        Search Books:
+      </A.form.Label>
       <div className="flex gap-1">
         <A.form.Input
           id="search-books-input"
           className="flex-1 w-full"
           name="query"
+          required
           defaultValue={actionState.query}
         />
         <A.IconButton
