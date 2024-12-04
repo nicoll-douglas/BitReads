@@ -9,7 +9,6 @@ export default function Main({ children }: { children: React.ReactNode }) {
   return (
     <main
       className={`flex-1 border border-black bg-${theme}-200 shadow-sm p-4 sticky top-0 overflow-y-auto flex flex-col`}
-      style={{ maxHeight: "calc(100dvh - 76px)" }}
     >
       {children}
     </main>

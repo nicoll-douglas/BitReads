@@ -1,1 +1,1 @@
-export * as gb from "./google-books";
+export * as gbooks from "./google-books";

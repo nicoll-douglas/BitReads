@@ -2,12 +2,12 @@
 
 import { Link } from "@/components/atomic";
 import { useTheme } from "@/features/theme";
-import { gb } from "@/services";
+import { gbooks } from "@/services";
 
 export default function Header({
   selfLink,
   volumeInfo,
-}: gb.types.SearchVolume) {
+}: gbooks.types.SearchVolume) {
   const { theme } = useTheme();
   const { authors, title } = volumeInfo;
   const authorString = authors?.join(", ") || "";

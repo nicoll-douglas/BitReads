@@ -2,9 +2,9 @@ import { Card } from "@/components/atomic";
 import PreviewImageLink from "./PreviewImageLink";
 import Header from "./Header";
 import Footer from "./Footer";
-import { gb } from "@/services";
+import { gbooks } from "@/services";
 
-interface BookPreviewProps extends gb.types.SearchVolume {
+interface BookPreviewProps extends gbooks.types.SearchVolume {
   index: number;
 }
 

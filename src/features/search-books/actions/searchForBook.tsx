@@ -1,7 +1,7 @@
 "use server";
 
 import type { SearchFormState } from "../types";
-import { gb } from "@/services";
+import { gbooks } from "@/services";
 
 export default async function searchForBook(
   previousState: SearchFormState,
@@ -10,7 +10,7 @@ export default async function searchForBook(
   const query = (formData.get("query") || "").toString();
 
   try {
-    const result = await gb.methods.volumeSearch(
+    const result = await gbooks.methods.volumeSearch(
       (formData.get("query") || '""').toString(),
       {
         maxResults: 18,

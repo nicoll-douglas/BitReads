@@ -2,6 +2,7 @@ import React from "react";
 import { auth } from "@/auth";
 import { redirect } from "next/navigation";
 import { Header, Main, Container } from "./_components";
+import "./locals.css";
 
 export default async function Layout({
   children,

@@ -1,0 +1,9 @@
+main {
+  max-height: calc(100dvh - 76px);
+}
+
+@media screen and (max-width: 1024px) {
+  main {
+    max-height: calc(100dvh - 80px);
+  }
+}

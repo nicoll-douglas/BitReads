@@ -1,6 +1,6 @@
-import { gb } from "@/services";
+import { gbooks } from "@/services";
 
 export type SearchFormState = {
   query: string;
-  data: gb.types.SearchResults | null;
+  data: gbooks.types.SearchResults | null;
 };

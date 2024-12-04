@@ -1,11 +1,11 @@
 import Image from "next/image";
-import { gb } from "@/services";
+import { gbooks } from "@/services";
 import { Link } from "@/components/atomic";
 
 export default function PreviewImageLink({
   selfLink,
   volumeInfo,
-}: gb.types.SearchVolume) {
+}: gbooks.types.SearchVolume) {
   const { imageLinks, title } = volumeInfo;
 
   return (
