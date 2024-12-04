@@ -26,14 +26,15 @@ export function SearchProvider({ children }: { children?: ReactNode }) {
   const [results, setResults] = useState<SearchResultsState>({
     error,
     data,
+    page,
   });
 
   useEffect(() => {
-    setResults({ data, error });
-  }, [error, data]);
+    setResults({ data, error, page });
+  }, [error, data, page]);
 
   const contextValue: SearchContextValue = {
-    form: { query, page, action, isPending },
+    form: { query, action, isPending },
     results,
     setResults,
   };

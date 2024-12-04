@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default async function Page() {
   return (
     <SearchProvider>
-      <section aria-label="Search Books">
+      <section aria-label="Search Books" className="flex-1 flex flex-col">
         <SearchForm />
         <SearchResults />
         <PaginationBtns />

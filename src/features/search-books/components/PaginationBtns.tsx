@@ -1,30 +1,49 @@
 "use client";
 
-import { Link } from "@/components/atomic";
-import { usePathname } from "next/navigation";
-import { useSearchParams } from "@/hooks";
+import * as A from "@/components/atomic";
+import { useSearch } from "../hooks";
+import { getPage } from "../actions";
+import { SEARCH_RESULTS_COUNT } from "../constants";
 
 export default function PaginationBtns() {
-  const pathname = usePathname();
-  const [searchParams] = useSearchParams();
-  const page = searchParams.get("page");
-  const query = searchParams.get("query");
+  const { results, setResults, form } = useSearch();
+  const { page: currentPage, data } = results;
+  if (!data) return;
 
-  if (!page || !query) return <></>;
+  async function getPrevious() {
+    if (!currentPage) return;
+    const { data, error, page } = await getPage(form.query, currentPage - 1);
+    setResults({ data, error, page });
+  }
 
-  const pageNumber = parseInt(page);
+  async function getNext() {
+    if (!currentPage) return;
+    const { data, error, page } = await getPage(form.query, currentPage + 1);
+    setResults({ data, error, page });
+  }
 
   return (
-    <div className="flex gap-4 p-4 items-center justify-center w-full">
-      {pageNumber !== 1 && (
-        <Link href={`${pathname}?query=${query}&page=${pageNumber - 1}`}>
-          Previous
-        </Link>
-      )}
-      <p>{page}</p>
-      <Link href={`${pathname}?query=${query}&page=${pageNumber + 1}`}>
-        Next
-      </Link>
-    </div>
+    data?.items &&
+    data.items.length > 0 && (
+      <div className="flex gap-4 pt-4 my-auto items-center justify-center w-full">
+        {currentPage !== 1 && (
+          <A.IconButton
+            size="xs"
+            icon="/icons/chevron-left.svg"
+            aria-label="Previous"
+            onClick={getPrevious}
+          />
+        )}
+        <p>{currentPage}</p>
+        {data.items?.length === SEARCH_RESULTS_COUNT && (
+          <A.IconButton
+            icon="/icons/chevron-right.svg"
+            aria-label="Next"
+            size="xs"
+            onClick={getNext}
+          />
+        )}
+      </div>
+    )
   );
 }
