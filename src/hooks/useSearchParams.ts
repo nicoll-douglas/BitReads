@@ -8,10 +8,15 @@ import { useCallback } from "react";
 
 type SearchParamsObject = { [key: string]: string };
 type SearchParamSetter = (pairs: SearchParamsObject) => void;
+type useSearchParamsOptions = {
+  push?: boolean;
+  scroll?: boolean;
+};
 
-export default function useSearchParams(
-  options = { push: false }
-): [ReadonlyURLSearchParams, SearchParamSetter] {
+export default function useSearchParams({
+  push: pushRoute = false,
+  scroll = false,
+}: useSearchParamsOptions): [ReadonlyURLSearchParams, SearchParamSetter] {
   const currentSearchParams = useNextSearchParams();
   const pathname = usePathname();
   const { replace, push } = useRouter();
@@ -29,13 +34,13 @@ export default function useSearchParams(
       });
 
       const newPath = `${pathname}?${searchParams.toString()}`;
-      if (options.push) {
-        push(newPath);
+      if (pushRoute) {
+        push(newPath, { scroll });
       } else {
-        replace(newPath);
+        replace(newPath, { scroll });
       }
     },
-    [currentSearchParams, pathname, replace, push, options.push]
+    [currentSearchParams, pathname, replace, push, pushRoute, scroll]
   );
 
   return [currentSearchParams, setSearchParams];

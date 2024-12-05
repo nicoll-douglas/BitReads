@@ -5,21 +5,20 @@ import { useSearch } from "../hooks";
 import { getPage } from "../actions";
 import { SEARCH_RESULTS_COUNT } from "../constants";
 import { useIsLoading } from "@/hooks";
-import { useCallback, useEffect } from "react";
+import { useCallback } from "react";
 
 export default function PaginationBtns() {
   const { results, setResults, form } = useSearch();
   const { page: currentPage, data, error } = results;
-  console.log("render");
 
-  useEffect(() => {
+  const scrollToTop = () =>
     document.querySelector("main")?.scrollTo({ top: 0, behavior: "smooth" });
-  }, [results]);
 
   const getPrevious = useCallback(async () => {
     if (!currentPage) return;
     const { data, error, page } = await getPage(form.query, currentPage - 1);
     setResults({ data, error, page });
+    scrollToTop();
   }, [currentPage, form.query, setResults]);
 
   const [_getPrevious, previousLoading] = useIsLoading(getPrevious);
@@ -28,6 +27,7 @@ export default function PaginationBtns() {
     if (!currentPage) return;
     const { data, error, page } = await getPage(form.query, currentPage + 1);
     setResults({ data, error, page });
+    scrollToTop();
   }, [currentPage, form.query, setResults]);
 
   const [_getNext, nextLoading] = useIsLoading(getNext);

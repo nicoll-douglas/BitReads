@@ -36,7 +36,7 @@ export function SearchProvider({
     page,
   });
 
-  const [, setSearchParams] = useSearchParams();
+  const [, setSearchParams] = useSearchParams({ push: false, scroll: false });
 
   useEffect(() => {
     setSearchParams({ query, page: results.page ? `${results.page}` : "" });
