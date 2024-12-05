@@ -9,7 +9,7 @@ import { useCallback } from "react";
 
 export default function PaginationBtns() {
   const { results, setResults, form } = useSearch();
-  const { page: currentPage, data } = results;
+  const { page: currentPage, data, error } = results;
 
   const getPrevious = useCallback(async () => {
     if (!currentPage) return;
@@ -27,7 +27,7 @@ export default function PaginationBtns() {
 
   const [_getNext, nextLoading] = useIsLoading(getNext);
 
-  if (!data) return;
+  if (!data || error) return;
 
   return (
     <div className="flex gap-4 py-4 mt-auto items-center justify-center w-full">
