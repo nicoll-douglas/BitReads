@@ -1,12 +1,15 @@
 import React, { useCallback } from "react";
 import useDisclosure from "./useDisclosure";
 
-export default function useMenu<T extends HTMLElement>() {
+export default function useMenu<
+  T extends HTMLElement = HTMLAnchorElement,
+  U extends HTMLElement = T
+>() {
   const { isOpen, onOpen, onToggle, onClose } = useDisclosure();
 
   const activator = React.useRef<HTMLButtonElement>(null);
   const firstFocus = React.useRef<T>(null);
-  const lastFocus = React.useRef<T>(null);
+  const lastFocus = React.useRef<U>(null);
 
   React.useEffect(() => {
     if (!isOpen) return;
