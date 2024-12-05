@@ -5,26 +5,39 @@ import { useEffect, useState } from "react";
 
 interface LoaderInnateProps {
   className?: string;
-  gap?: "sm" | "md" | "lg";
+  size?: "sm" | "md" | "lg";
 }
 
-function LoaderInnate({ className = "", gap = "md" }: LoaderInnateProps) {
-  const classesA = `w-1 h-1 bg-black animate-loading-bounce`;
-  const gapClass = {
-    sm: "gap-1",
-    md: "gap-2",
-    lg: "gap-3",
+function LoaderInnate({ className = "", size = "md" }: LoaderInnateProps) {
+  const classes = {
+    box: "bg-black animate-loading-bounce",
+    gap: {
+      sm: "gap-1",
+      md: "gap-2",
+      lg: "gap-[10px]",
+    },
+    boxSize: {
+      sm: "w-[3px] h-[3px]",
+      md: "w-1 h-1",
+      lg: "w-[6px] h-[6px]",
+    },
   };
 
   return (
     <div
-      className={`${gapClass[gap]} flex justify-center items-center translate-y-[3px] ${className}`}
+      className={`${classes.gap[size]} flex justify-center items-center translate-y-[3px] ${className}`}
       role="status"
       aria-label="Loading"
     >
-      <div className={classesA}></div>
-      <div className={classesA} style={{ animationDelay: "100ms" }}></div>
-      <div className={classesA} style={{ animationDelay: "300ms" }}></div>
+      <div className={`${classes.box} ${classes.boxSize[size]}`}></div>
+      <div
+        className={`${classes.box} ${classes.boxSize[size]}`}
+        style={{ animationDelay: "100ms" }}
+      ></div>
+      <div
+        className={`${classes.box} ${classes.boxSize[size]}`}
+        style={{ animationDelay: "300ms" }}
+      ></div>
     </div>
   );
 }

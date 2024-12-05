@@ -8,7 +8,7 @@ interface ContainerProps extends React.HTMLProps<HTMLUListElement> {
   "aria-labelledby": string;
   themeSync?: boolean;
   alignment?: "right" | "left";
-  offset?: "sm" | "md" | "lg";
+  offset?: "sm" | "md" | "lg" | "xs";
 }
 
 export default function Content({
@@ -30,6 +30,7 @@ export default function Content({
       right: "right-0",
     },
     offset: {
+      xs: "top-6",
       sm: "top-8",
       md: "top-9",
       lg: "top-10",

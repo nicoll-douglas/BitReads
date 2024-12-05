@@ -21,7 +21,7 @@ export default function PreviewImageLink({
           "/broken-image.svg"
         }
         fill={true}
-        alt={title}
+        alt={title || ""}
         sizes="(min-width: 320px) 56px"
       />
     </Link>

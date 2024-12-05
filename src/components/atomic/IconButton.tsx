@@ -2,9 +2,10 @@ import React from "react";
 import Button, { ButtonProps } from "./Button";
 import Image from "next/image";
 
-export interface IconButtonProps extends ButtonProps {
+export interface IconButtonProps
+  extends Omit<ButtonProps, "rightIcon" | "leftIcon"> {
   "aria-label": string;
-  icon: string;
+  icon?: string;
 }
 
 const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
@@ -37,7 +38,7 @@ const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
       >
         <Image
           alt=""
-          src={icon}
+          src={icon || ""}
           width={20}
           height={20}
           className={sizes[size].icon}
