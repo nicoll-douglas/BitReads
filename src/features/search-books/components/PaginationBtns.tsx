@@ -11,14 +11,10 @@ export default function PaginationBtns() {
   const { results, setResults, form } = useSearch();
   const { page: currentPage, data, error } = results;
 
-  const scrollToTop = () =>
-    document.querySelector("main")?.scrollTo({ top: 0, behavior: "smooth" });
-
   const getPrevious = useCallback(async () => {
     if (!currentPage) return;
     const { data, error, page } = await getPage(form.query, currentPage - 1);
     setResults({ data, error, page });
-    scrollToTop();
   }, [currentPage, form.query, setResults]);
 
   const [_getPrevious, previousLoading] = useIsLoading(getPrevious);
@@ -27,7 +23,6 @@ export default function PaginationBtns() {
     if (!currentPage) return;
     const { data, error, page } = await getPage(form.query, currentPage + 1);
     setResults({ data, error, page });
-    scrollToTop();
   }, [currentPage, form.query, setResults]);
 
   const [_getNext, nextLoading] = useIsLoading(getNext);
@@ -35,7 +30,11 @@ export default function PaginationBtns() {
   if (!data || error) return;
 
   return (
-    <div className="flex gap-4 pt-4 mt-auto items-center justify-center ml-auto">
+    <div
+      className="flex gap-4 items-center justify-center"
+      role="group"
+      aria-label="Pagination"
+    >
       {currentPage !== 1 && (
         <A.IconButton
           size="xs"
@@ -46,7 +45,7 @@ export default function PaginationBtns() {
           loader="sm"
         />
       )}
-      <p>{`Page ${currentPage}`}</p>
+      <p className="text-nowrap">{`Page ${currentPage}`}</p>
       {data.totalItems > SEARCH_RESULTS_COUNT && (
         <A.IconButton
           icon="/icons/arrow-right.svg"

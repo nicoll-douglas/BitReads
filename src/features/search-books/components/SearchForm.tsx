@@ -10,7 +10,7 @@ export default function SearchForm() {
     <form
       className="flex flex-col max-w-container.xs mb-4"
       action={form.action}
-      aria-label="Search Books Form"
+      aria-label="Search Books"
     >
       <A.form.Label htmlFor="search-books-input" required>
         Search Books:

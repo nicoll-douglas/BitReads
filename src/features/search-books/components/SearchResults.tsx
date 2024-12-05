@@ -7,7 +7,7 @@ export default function SearchResults() {
   const { results } = useSearch();
 
   return (
-    <div className="w-full">
+    <div className="w-full flex-1">
       {(results.data || results.error) && (
         <h2 className="mb-1" id="results-heading">
           Results:

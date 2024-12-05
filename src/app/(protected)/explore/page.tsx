@@ -4,6 +4,7 @@ import {
   SearchResults,
   PaginationBtns,
   handleInitialSearchParams,
+  FooterLinks,
 } from "@/features/search-books";
 import type { Metadata } from "next";
 
@@ -21,11 +22,14 @@ export default async function Page({
 
   return (
     <SearchProvider initialState={initialState}>
-      <section aria-label="Search Books" className="flex-1 flex flex-col">
+      <div className="flex-1 flex flex-col">
         <SearchForm />
         <SearchResults />
-        <PaginationBtns />
-      </section>
+        <footer className="flex justify-between gap-8 w-full items-start lg:items-center pt-4 mt-auto">
+          <FooterLinks />
+          <PaginationBtns />
+        </footer>
+      </div>
     </SearchProvider>
   );
 }
