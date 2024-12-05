@@ -29,7 +29,7 @@ export default function SearchForm() {
           type="submit"
           isLoading={form.isPending}
         />
-        {/* <A.IconButton icon="/icons/filter.svg" aria-label="Filter" /> */}
+        <A.IconButton icon="/icons/filter.svg" aria-label="Filter" />
       </div>
     </form>
   );

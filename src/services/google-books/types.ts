@@ -11,7 +11,7 @@ export interface SearchVolume {
   id: string;
   selfLink: string;
   volumeInfo: {
-    title: string;
+    title?: string;
     authors?: string[];
     publisher?: string;
     publishedDate?: string;

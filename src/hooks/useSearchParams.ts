@@ -4,31 +4,39 @@ import {
   usePathname,
 } from "next/navigation";
 import type { ReadonlyURLSearchParams } from "next/navigation";
+import { useCallback } from "react";
 
-type SearchParamsObject = { [key: string]: string | null };
+type SearchParamsObject = { [key: string]: string };
 type SearchParamSetter = (pairs: SearchParamsObject) => void;
 
-export default function useSearchParams(): [
-  ReadonlyURLSearchParams,
-  SearchParamSetter
-] {
+export default function useSearchParams(
+  options = { push: false }
+): [ReadonlyURLSearchParams, SearchParamSetter] {
   const currentSearchParams = useNextSearchParams();
-  const searchParams = new URLSearchParams(currentSearchParams);
-
   const pathname = usePathname();
-  const { replace } = useRouter();
+  const { replace, push } = useRouter();
 
-  function setSearchParams(pairs: SearchParamsObject) {
-    Object.entries(pairs).forEach(([key, value]) => {
-      if (!value) {
-        searchParams.delete(key);
+  const setSearchParams = useCallback(
+    (pairs: SearchParamsObject) => {
+      const searchParams = new URLSearchParams(currentSearchParams);
+
+      Object.entries(pairs).forEach(([key, value]) => {
+        if (!value) {
+          searchParams.delete(key);
+        } else {
+          searchParams.set(key, value);
+        }
+      });
+
+      const newPath = `${pathname}?${searchParams.toString()}`;
+      if (options.push) {
+        push(newPath);
       } else {
-        searchParams.set(key, value);
+        replace(newPath);
       }
-    });
-
-    replace(`${pathname}?${searchParams.toString()}`);
-  }
+    },
+    [currentSearchParams, pathname, replace, push, options.push]
+  );
 
   return [currentSearchParams, setSearchParams];
 }

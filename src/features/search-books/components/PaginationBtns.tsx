@@ -5,11 +5,16 @@ import { useSearch } from "../hooks";
 import { getPage } from "../actions";
 import { SEARCH_RESULTS_COUNT } from "../constants";
 import { useIsLoading } from "@/hooks";
-import { useCallback } from "react";
+import { useCallback, useEffect } from "react";
 
 export default function PaginationBtns() {
   const { results, setResults, form } = useSearch();
   const { page: currentPage, data, error } = results;
+  console.log("render");
+
+  useEffect(() => {
+    document.querySelector("main")?.scrollTo({ top: 0, behavior: "smooth" });
+  }, [results]);
 
   const getPrevious = useCallback(async () => {
     if (!currentPage) return;
@@ -34,7 +39,7 @@ export default function PaginationBtns() {
       {currentPage !== 1 && (
         <A.IconButton
           size="xs"
-          icon="/icons/chevron-left.svg"
+          icon="/icons/arrow-left.svg"
           aria-label="Previous"
           onClick={_getPrevious}
           isLoading={previousLoading}
@@ -44,7 +49,7 @@ export default function PaginationBtns() {
       <p>{`Page ${currentPage}`}</p>
       {data.totalItems > SEARCH_RESULTS_COUNT && (
         <A.IconButton
-          icon="/icons/chevron-right.svg"
+          icon="/icons/arrow-right.svg"
           aria-label="Next"
           size="xs"
           onClick={_getNext}

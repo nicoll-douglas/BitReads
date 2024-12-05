@@ -13,13 +13,20 @@ import type {
   SearchContextValue,
 } from "../types";
 import { search } from "../actions";
+import { useSearchParams } from "@/hooks";
 
 export const SearchContext = createContext<SearchContextValue>(undefined);
 
-export function SearchProvider({ children }: { children?: ReactNode }) {
+export function SearchProvider({
+  children,
+  initialState,
+}: {
+  children?: ReactNode;
+  initialState: SearchFormState;
+}) {
   const [state, action, isPending] = useActionState<SearchFormState, FormData>(
     search,
-    { query: "" }
+    initialState
   );
   const { query, page, error, data } = state;
 
@@ -28,6 +35,12 @@ export function SearchProvider({ children }: { children?: ReactNode }) {
     data,
     page,
   });
+
+  const [, setSearchParams] = useSearchParams();
+
+  useEffect(() => {
+    setSearchParams({ query, page: results.page ? `${results.page}` : "" });
+  }, [results, query, setSearchParams]);
 
   useEffect(() => {
     setResults({ data, error, page });
