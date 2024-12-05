@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import useDisclosure from "./useDisclosure";
 
 export default function useMenu<T extends HTMLElement>() {
@@ -13,26 +13,32 @@ export default function useMenu<T extends HTMLElement>() {
     firstFocus.current?.focus();
   }, [isOpen, firstFocus]);
 
-  const onKeyDown = (e: React.KeyboardEvent) => {
-    const { key } = e;
+  const onKeyDown = useCallback(
+    (e: React.KeyboardEvent) => {
+      const { key } = e;
 
-    if (key === "Escape") {
-      e.preventDefault();
-      onClose();
-      activator.current?.focus();
-      return;
-    }
-
-    if (key === "Tab") {
-      if (e.shiftKey && document.activeElement === firstFocus.current) {
+      if (key === "Escape") {
         e.preventDefault();
-        lastFocus.current?.focus();
-      } else if (!e.shiftKey && document.activeElement === lastFocus.current) {
-        e.preventDefault();
-        firstFocus.current?.focus();
+        onClose();
+        activator.current?.focus();
+        return;
       }
-    }
-  };
+
+      if (key === "Tab") {
+        if (e.shiftKey && document.activeElement === firstFocus.current) {
+          e.preventDefault();
+          lastFocus.current?.focus();
+        } else if (
+          !e.shiftKey &&
+          document.activeElement === lastFocus.current
+        ) {
+          e.preventDefault();
+          firstFocus.current?.focus();
+        }
+      }
+    },
+    [onClose]
+  );
 
   return {
     onKeyDown,
