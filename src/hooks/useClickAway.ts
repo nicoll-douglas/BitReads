@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { useCallback, useEffect } from "react";
 
 export default function useClickAway(
@@ -13,11 +12,11 @@ export default function useClickAway(
       if (e.target.matches(regionSelector)) return;
       cb();
     },
-    [cb]
+    [regionSelector, cb]
   );
 
   useEffect(() => {
     document.addEventListener("click", handleClickAway);
     return () => document.removeEventListener("click", handleClickAway);
-  }, []);
+  }, [handleClickAway]);
 }
