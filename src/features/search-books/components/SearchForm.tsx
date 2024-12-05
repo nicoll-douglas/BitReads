@@ -8,7 +8,7 @@ export default function SearchForm() {
 
   return (
     <form
-      className="flex flex-col max-w-container.xs mb-4"
+      className="flex flex-col max-w-container.xs"
       action={form.action}
       aria-label="Search Books"
     >

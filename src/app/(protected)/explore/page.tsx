@@ -22,10 +22,10 @@ export default async function Page({
 
   return (
     <SearchProvider initialState={initialState}>
-      <div className="flex-1 flex flex-col">
+      <div className="flex-1 flex flex-col gap-4">
         <SearchForm />
         <SearchResults />
-        <footer className="flex justify-between gap-8 w-full items-start lg:items-center pt-4 mt-auto">
+        <footer className="flex justify-between gap-8 w-full items-start lg:items-center">
           <FooterLinks />
           <PaginationBtns />
         </footer>
