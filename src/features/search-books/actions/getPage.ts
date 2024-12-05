@@ -1,3 +1,5 @@
+"use server";
+
 import type { SearchFormState } from "../types";
 import { SEARCH_RESULTS_COUNT } from "../constants";
 import { gbooks } from "@/services";
