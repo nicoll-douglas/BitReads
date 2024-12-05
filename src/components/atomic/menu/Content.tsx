@@ -8,39 +8,25 @@ interface ContainerProps extends React.HTMLProps<HTMLUListElement> {
   "aria-labelledby": string;
   themeSync?: boolean;
   alignment?: "right" | "left";
-  offset?: "sm" | "md" | "lg" | "xs";
 }
 
 export default function Content({
   className = "",
   children,
   themeSync = true,
-  offset = "md",
-  alignment = "right",
   ...rest
 }: ContainerProps) {
   let { theme } = useTheme();
   theme = themeSync ? theme : Themes.Default;
 
   const classes = {
-    default:
-      "flex flex-col absolute p-2 w-52 border border-black z-50 shadow-lg",
-    alignment: {
-      left: "left-0",
-      right: "right-0",
-    },
-    offset: {
-      xs: "top-6",
-      sm: "top-8",
-      md: "top-9",
-      lg: "top-10",
-    },
+    default: "flex flex-col absolute p-2 border border-black z-50 shadow-lg",
   };
 
   return (
     <ul
       role="menu"
-      className={`${classes.alignment[alignment]} ${classes.default} bg-${theme}-200 ${classes.offset[offset]} ${className}`}
+      className={`${classes.default} bg-${theme}-200 ${className}`}
       {...rest}
     >
       {children}

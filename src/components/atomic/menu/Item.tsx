@@ -8,9 +8,7 @@ export default function Item({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     const child = document.querySelector(`#${id} > :first-child`);
     if (!child) return;
-
     child.setAttribute("role", "menuitem");
-    child.classList.add("px-2", "flex-1", "py-2");
   }, [id]);
 
   return (

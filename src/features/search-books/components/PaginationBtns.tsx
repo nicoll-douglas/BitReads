@@ -30,7 +30,7 @@ export default function PaginationBtns() {
   if (!data || error) return;
 
   return (
-    <div className="flex gap-4 py-4 mt-auto items-center justify-center w-full">
+    <div className="flex gap-4 pt-4 mt-auto items-center justify-center ml-auto">
       {currentPage !== 1 && (
         <A.IconButton
           size="xs"
@@ -41,7 +41,7 @@ export default function PaginationBtns() {
           loader="sm"
         />
       )}
-      <p>{currentPage}</p>
+      <p>{`Page ${currentPage}`}</p>
       {data.totalItems > SEARCH_RESULTS_COUNT && (
         <A.IconButton
           icon="/icons/chevron-right.svg"

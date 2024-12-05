@@ -27,8 +27,7 @@ export default function MobileMenu() {
         <A.menu.Content
           id="app-nav-content"
           aria-labelledby="app-nav-btn"
-          offset="sm"
-          className="mt-[6px]"
+          className="mt-[6px] w-52 right-0"
         >
           {links.map(({ title, href }, index) => {
             return (
@@ -36,6 +35,7 @@ export default function MobileMenu() {
                 <A.Link
                   href={href}
                   onClick={onClose}
+                  className="p-2 flex-1"
                   ref={
                     index === 0
                       ? refs.firstFocus

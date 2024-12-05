@@ -12,14 +12,6 @@ export default function BookActionsMenu({ volumeId }: { volumeId: string }) {
     useMenu<HTMLButtonElement>();
   useClickAway(`#${containerId}`, onClose);
 
-  // if (volumeId === "EvqJCGeqKhsC") {
-  //   console.log(`PP1 menu is open: ${isOpen}`);
-  // }
-
-  // if (volumeId === "GjjZrQEACAAJ") {
-  //   console.log(`PP2 menu is open: ${isOpen}`);
-  // }
-
   return (
     <A.menu.Container id={containerId} onKeyDown={onKeyDown}>
       <A.menu.Button
@@ -35,14 +27,13 @@ export default function BookActionsMenu({ volumeId }: { volumeId: string }) {
         <A.menu.Content
           id={contentId}
           aria-labelledby={buttonId}
-          offset="xs"
-          className="mt-[4px] min-w-fit flex flex-col gap-1 shadow-sm"
+          className="w-60 gap-1 shadow-sm right-6 bottom-6"
         >
           <A.menu.Item>
             <A.Button
               onClick={onClose}
               ref={refs.firstFocus}
-              className="px-4"
+              className="px-4 flex-1 min-w-fit"
               size="sm"
               rightIcon="/icons/watch-icon.svg"
             >
@@ -52,7 +43,7 @@ export default function BookActionsMenu({ volumeId }: { volumeId: string }) {
           <A.menu.Item>
             <A.Button
               onClick={onClose}
-              className="px-4"
+              className="px-4 flex-1 min-w-fit"
               size="sm"
               rightIcon="/icons/add-icon.svg"
             >
@@ -62,7 +53,7 @@ export default function BookActionsMenu({ volumeId }: { volumeId: string }) {
           <A.menu.Item>
             <A.Button
               onClick={onClose}
-              className="px-4"
+              className="px-4 flex-1 min-w-fit"
               size="sm"
               ref={refs.lastFocus}
               rightIcon="/icons/tick.svg"

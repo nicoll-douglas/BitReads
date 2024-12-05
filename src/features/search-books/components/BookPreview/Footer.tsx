@@ -1,7 +1,7 @@
 import { gbooks } from "@/services";
-import BookActionsBtn from "./BookActionsBtn";
+import BookActionsMenu from "./BookActionsMenu";
 
-export default function Footer({ volumeInfo }: gbooks.types.SearchVolume) {
+export default function Footer({ volumeInfo, id }: gbooks.types.SearchVolume) {
   const { publisher, publishedDate } = volumeInfo;
 
   return (
@@ -24,7 +24,7 @@ export default function Footer({ volumeInfo }: gbooks.types.SearchVolume) {
           <p className={"w-1/2 inline no-overflow"}>{publishedDate}</p>
         )}
       </div>
-      <BookActionsBtn />
+      <BookActionsMenu volumeId={id} />
     </div>
   );
 }

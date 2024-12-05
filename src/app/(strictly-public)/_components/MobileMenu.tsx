@@ -28,7 +28,7 @@ export default function MobileMenu() {
           id="site-nav-content"
           aria-labelledby="site-nav-btn"
           themeSync={false}
-          className="mt-2"
+          className="mt-2 w-52 right-0"
         >
           {links.map(({ title, href }, index) => {
             return (
@@ -43,6 +43,7 @@ export default function MobileMenu() {
                       ? refs.lastFocus
                       : null
                   }
+                  className="p-2 flex-1"
                 >
                   {title}
                 </A.Link>
