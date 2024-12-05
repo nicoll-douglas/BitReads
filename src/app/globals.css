@@ -7,12 +7,8 @@ body {
   @apply bg-cyan-300 min-h-dvh text-black text-xl leading-6 flex flex-col;
 }
 
-input:focus-visible {
-  @apply outline-none;
-}
-
 :focus-visible {
-  @apply outline-2 outline-red-500 outline-double;
+  @apply outline-2 outline-red-500 outline-double outline-offset-0;
 }
 
 ::selection {
@@ -21,4 +17,14 @@ input:focus-visible {
 
 .no-overflow {
   @apply text-ellipsis text-nowrap w-full overflow-hidden max-w-fit block;
+}
+
+input[type="checkbox"]::before {
+  content: "";
+  @apply w-3 h-3 max-w-3 max-h-3 text-sm hidden bg-contain bg-center;
+  background-image: url("/icons/checkmark-3.svg");
+}
+
+input[type="checkbox"]:checked::before {
+  @apply inline-block;
 }
