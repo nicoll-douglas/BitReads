@@ -1,8 +1,8 @@
 import NextAuth from "next-auth";
-import { MongoDBAdapter } from "@auth/mongodb-adapter";
 import Resend from "next-auth/providers/resend";
 import Google from "next-auth/providers/google";
-import { mongo } from "@/server";
+import { PrismaAdapter } from "@auth/prisma-adapter";
+import prisma from "./prisma";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
@@ -17,7 +17,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     verifyRequest: "/auth/verify",
     signOut: "/",
   },
-  adapter: MongoDBAdapter(mongo.client),
+  adapter: PrismaAdapter(prisma),
   session: {
     strategy: "jwt",
   },
