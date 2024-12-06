@@ -17,6 +17,6 @@ export default async function getPage(
     return { query, data, page };
   } catch (err) {
     console.log(err);
-    return { query: "", error: true };
+    return { query, error: true };
   }
 }

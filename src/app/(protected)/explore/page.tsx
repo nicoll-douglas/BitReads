@@ -24,7 +24,9 @@ export default async function Page({
     <SearchProvider initialState={initialState}>
       <div className="flex-1 flex flex-col gap-4">
         <SearchForm />
-        <SearchResults />
+        <div className="w-full flex-1 flex items-center justify-center">
+          <SearchResults />
+        </div>
         <footer className="flex justify-between gap-8 w-full items-start lg:items-center">
           <FooterLinks />
           <PaginationBtns />

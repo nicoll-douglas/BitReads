@@ -13,7 +13,7 @@ const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
     const sizes = {
       xs: {
         btn: "w-6 min-w-6 min-h-6",
-        icon: "w-3 h-3",
+        icon: "w-[14px] h-[14px]",
       },
       sm: {
         btn: "w-8 min-w-8 min-h-8",

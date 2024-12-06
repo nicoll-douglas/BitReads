@@ -3,7 +3,6 @@
 import * as A from "@/components/atomic";
 import { useSearch } from "../hooks";
 import { getPage } from "../actions";
-import { SEARCH_RESULTS_COUNT } from "../constants";
 import { useIsLoading } from "@/hooks";
 import { useCallback } from "react";
 
@@ -46,7 +45,7 @@ export default function PaginationBtns() {
         />
       )}
       <p className="text-nowrap">{`Page ${currentPage}`}</p>
-      {data.totalItems > SEARCH_RESULTS_COUNT && (
+      {data.totalItems > 0 && (
         <A.IconButton
           icon="/icons/arrow-right.svg"
           aria-label="Next"
