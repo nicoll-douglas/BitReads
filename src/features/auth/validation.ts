@@ -7,7 +7,7 @@ const emailSchema = z
   })
   .email("Email is invalid");
 
-const signInSchema = z
+export const signInSchema = z
   .object({
     email: emailSchema,
     confirmEmail: emailSchema,
@@ -16,5 +16,3 @@ const signInSchema = z
     message: "Emails do not match",
     path: ["confirmEmail"],
   });
-
-export default signInSchema;

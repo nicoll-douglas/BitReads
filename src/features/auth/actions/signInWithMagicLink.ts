@@ -4,7 +4,7 @@ import { signIn } from "@/auth";
 import { redirect } from "next/navigation";
 import { AuthError } from "next-auth";
 import { SignInFormState } from "../types";
-import { validation } from "@/server";
+import { signInSchema } from "../validation";
 
 export default async function signInWithMagicLink(
   previousState: SignInFormState,
@@ -15,7 +15,7 @@ export default async function signInWithMagicLink(
     confirmEmail: String(formData.get("confirmEmail") || ""),
   };
 
-  const result = validation.signInSchema.safeParse(formObj);
+  const result = signInSchema.safeParse(formObj);
   let newState: SignInFormState;
 
   if (!result.success) {

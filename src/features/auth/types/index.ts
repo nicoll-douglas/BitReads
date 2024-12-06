@@ -1,7 +1,7 @@
 import { z } from "zod";
-import { validation } from "@/server";
+import { signInSchema } from "../validation";
 
 export interface SignInFormState {
-  errors: z.inferFormattedError<typeof validation.signInSchema> | undefined;
-  data: z.infer<typeof validation.signInSchema>;
+  errors: z.inferFormattedError<typeof signInSchema> | undefined;
+  data: z.infer<typeof signInSchema>;
 }
