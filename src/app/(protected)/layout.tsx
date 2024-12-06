@@ -2,6 +2,7 @@ import React from "react";
 import { auth } from "@/auth";
 import { redirect } from "next/navigation";
 import { Header, Main, Container } from "./_components";
+import { AuthProvider } from "@/features/auth";
 import "./locals.css";
 
 export default async function Layout({
@@ -14,11 +15,13 @@ export default async function Layout({
   if (!session) return redirect("/auth/sign-in");
 
   return (
-    <Container>
-      <div className="p-4 flex flex-col min-h-dvh max-w-[1440px] w-full mx-auto">
-        <Header />
-        <Main>{children}</Main>
-      </div>
-    </Container>
+    <AuthProvider session={session}>
+      <Container>
+        <div className="p-4 flex flex-col min-h-dvh max-w-[1440px] w-full mx-auto">
+          <Header />
+          <Main>{children}</Main>
+        </div>
+      </Container>
+    </AuthProvider>
   );
 }
