@@ -1,15 +1,19 @@
 "use client";
 
 import * as A from "@/components/atomic";
+import { useClickAway, useMenu } from "@/hooks";
+import React, { useState } from "react";
+import { getVolumeInUserLists } from "../../actions";
+import type { BookActionsData } from "../../types";
 import BookActionsForm from "./BookActionsForm";
-import { useMenu, useClickAway } from "@/hooks";
 
 export default function BookActionsMenu({ volumeId }: { volumeId: string }) {
   const contentId = `action-content-${volumeId}`;
   const containerId = `action-container-${volumeId}`;
   const buttonId = `action-btn-${volumeId}`;
+  const [bookActionsData, setBookActionsData] = useState<BookActionsData>({});
 
-  const { onToggle, onKeyDown, isOpen, onClose, refs } = useMenu<
+  const { onClose, onKeyDown, onToggle, refs, isOpen } = useMenu<
     HTMLInputElement,
     HTMLButtonElement
   >();
@@ -21,12 +25,18 @@ export default function BookActionsMenu({ volumeId }: { volumeId: string }) {
         id={buttonId}
         aria-label="Book Actions"
         aria-controls={contentId}
-        onClick={onToggle}
+        onClick={async () => {
+          if (!isOpen) {
+            const result = await getVolumeInUserLists(volumeId);
+            setBookActionsData(result);
+          }
+          onToggle();
+        }}
         ref={refs.activator}
         icon="/icons/list-icon.svg"
         size={"xs"}
       />
-      {isOpen && (
+      {isOpen && bookActionsData.data && (
         <A.menu.Content
           id={contentId}
           aria-labelledby={buttonId}
@@ -41,6 +51,7 @@ export default function BookActionsMenu({ volumeId }: { volumeId: string }) {
               lastFocusRef: refs.lastFocus,
               close: onClose,
             }}
+            data={bookActionsData.data}
           />
         </A.menu.Content>
       )}

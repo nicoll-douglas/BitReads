@@ -22,3 +22,12 @@ export type SearchContextValue =
       setResults: Dispatch<SetStateAction<SearchResultsState>>;
     }
   | undefined;
+
+export type BookActionsData = {
+  data?: {
+    haveRead: boolean;
+    wantToRead: boolean;
+    currentlyReading: boolean;
+  };
+  error?: boolean;
+};
